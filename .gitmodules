@@ -1,18 +1,18 @@
-[submodule "vendor/restful_authentication"]
-	path = vendor/restful_authentication
+[submodule "vendor/plugins/restful_authentication"]
+	path = vendor/plugins/restful_authentication
 	url = git://github.com/technoweenie/restful-authentication.git
-[submodule "vendor/attachment_fu"]
-	path = vendor/attachment_fu
+[submodule "vendor/plugins/attachment_fu"]
+	path = vendor/plugins/attachment_fu
 	url = git://github.com/technoweenie/attachment_fu.git
-[submodule "vendor/workflow"]
-	path = vendor/workflow
+[submodule "vendor/plugins/workflow"]
+	path = vendor/plugins/workflow
 	url = git://github.com/ryan-allen/workflow.git
-[submodule "vendor/will_paginate"]
-	path = vendor/will_paginate
+[submodule "vendor/plugins/will_paginate"]
+	path = vendor/plugins/will_paginate
 	url = git://github.com/mislav/will_paginate.git
-[submodule "vendor/upload_progress"]
-	path = vendor/upload_progress
+[submodule "vendor/plugins/upload_progress"]
+	path = vendor/plugins/upload_progress
 	url = git://github.com/rails/upload_progress.git
-[submodule "vendor/restful_acl"]
-	path = vendor/restful_acl
+[submodule "vendor/plugins/restful_acl"]
+	path = vendor/plugins/restful_acl
 	url = git://github.com/mdarby/restful_acl.git
