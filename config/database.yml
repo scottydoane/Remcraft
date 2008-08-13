@@ -18,8 +18,8 @@ development:
   adapter: mysql
   encoding: utf8
   database: remcraft_development
-  username: root
-  password:
+  username: scotty
+  password: prodigious
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -29,8 +29,8 @@ test:
   adapter: mysql
   encoding: utf8
   database: remcraft_test
-  username: root
-  password:
+  username: scotty
+  password: prodigious
   socket: /tmp/mysql.sock
 
 production:

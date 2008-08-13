@@ -16,3 +16,9 @@
 [submodule "vendor/plugins/restful_acl"]
 	path = vendor/plugins/restful_acl
 	url = git://github.com/mdarby/restful_acl.git
+[submodule "vendor/plugins/acts_as_taggable_on_steroids"]
+	path = vendor/plugins/acts_as_taggable_on_steroids
+	url = git://github.com/mattetti/acts_as_taggable_on_steroids.git
+[submodule "vendor/plugins/haml"]
+	path = vendor/plugins/haml
+	url = git://github.com/nex3/haml.git

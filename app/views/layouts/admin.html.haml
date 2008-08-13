@@ -1,0 +1,39 @@
+!!! XML iso-8859-1
+!!! Transitional
+%html{ :xmlns => 'http://www.w3.org/1999/xhtml', :'xml:lang' => 'en', :lang => 'en'}
+  %head
+    %title
+      = controller.controller_name.titleize
+      = controller.action_name.titleize
+      
+    %link{ :rel => 'stylesheet', :type => 'text/css', :href => 'http://yui.yahooapis.com/2.5.2/build/reset/reset-min.css' }    
+    = stylesheet_link_tag 'admin'
+  
+    /[if IE 6] 
+      = stylesheet_link_tag 'ie6admin.css'
+  
+    /[if IE 7] 
+      = stylesheet_link_tag 'ie7admin.css'
+      
+    = javascript_include_tag :all, :cache => true
+    = yield(:head)
+  %body
+    #wrap              
+      #main
+        #header
+          .gutter
+            .user-navigation
+              - if current_user
+                = "You are logged in as #{current_user.name} - " 
+                = link_to "Log Out", session_path, :method => 'delete' 
+            = content_tag(:div, flash[:notice], :id => 'flash', :class => 'flash-notice') if flash[:notice]
+            = content_tag(:div, flash[:error], :id => 'flash', :class => 'flash-error') if flash[:error]
+        #navigation
+          .gutter
+            = render :partial => 'shared/admin_navigation' if current_user
+        #content
+          .gutter
+            = yield
+
+        #footer
+          .gutter= "#{ENV['RAILS_ENV'].titleize} Build"

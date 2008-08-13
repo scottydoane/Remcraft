@@ -1,0 +1,20 @@
+<h1>Listing Pages</h1>
+<span class='add-new-link'><%= link_to "New page", new_page_path %></span>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Content</th>
+    <th class='actions'>Actions</th>
+  </tr>
+
+<% for page in @pages %>
+  <tr>
+    <td><%= link_to page.name, edit_page_path(page) %></td>
+    <td><%=h truncate(page.content, 255) %></td>
+    <td class='actions'>
+      <%= link_to 'Preview', page %> 
+      <%= link_to 'Delete', page, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

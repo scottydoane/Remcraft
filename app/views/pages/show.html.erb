@@ -1,0 +1,6 @@
+<%= RedCloth.new(@page.content).to_html %>
+
+<%- if current_user -%>
+  <%= link_to 'All Pages', pages_path %> |
+  <%= link_to 'Edit', page_url(@page) %> 
+<%- end -%>
