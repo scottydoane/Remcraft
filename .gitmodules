@@ -22,3 +22,6 @@
 [submodule "vendor/plugins/haml"]
 	path = vendor/plugins/haml
 	url = git://github.com/nex3/haml.git
+[submodule "vendor/plugins/acts_as_category"]
+	path = vendor/plugins/acts_as_category
+	url = git://github.com/funkensturm/acts_as_category.git

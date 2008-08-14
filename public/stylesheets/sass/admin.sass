@@ -13,8 +13,10 @@ html, body
   :color #fff
 .flash-notice
   :background #3EA99F
+  :border solid 1px #307D7E
 .flash-error
   :background #F88017
+  :border solid 1px #F87217
   
 #wrap
   :background #fff
@@ -39,7 +41,7 @@ html, body
     :font-size 1.1667em
     :margin 1em 0 0.2857em 0
     :font-weight bold
-
+  
   #header
     .user-navigation
       :float right
@@ -56,7 +58,8 @@ html, body
     ul
       :background #FAF8CC
       :border-bottom solid 1px #FFE87C
-      :height 2.33em
+      :height 2.45em
+      :display block
       li
         :display inline
         a
@@ -72,7 +75,14 @@ html, body
 
   #content
     :clear both
-  
+    .sortable-categories
+      ul
+        :display block
+        :padding-left 1em
+        :list-style-type disc
+        li
+          :display block
+        
   #footer
     :text-align center
     :font-size 0.83em

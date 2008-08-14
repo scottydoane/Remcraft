@@ -1,0 +1,20 @@
+<h1>Listing Products</h1>
+<span class='add-new-link'><%= link_to "New product", new_product_path %></span>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th class='actions'>Actions</th>
+  </tr>
+
+<% for product in @products %>
+  <tr>
+    <td><%= link_to product.name, edit_product_path(product) %></td>
+    <td><%=h truncate(product.description, 255) %></td>
+    <td class='actions'>
+      <%= link_to 'Preview', product %> 
+      <%= link_to 'Delete', product, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

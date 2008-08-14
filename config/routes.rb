@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-
+  
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.register '/register', :controller => 'users', :action => 'create'
@@ -9,8 +9,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
-  map.resources :products
-
+  map.resources :products, :has_many => :images
+  
+  map.resources :categories
+  map.resources :options
+  
   map.with_options :controller => 'pages' do |pages|
     pages.about 'about', :action => 'about'
     pages.contact 'contact', :action => 'contact'

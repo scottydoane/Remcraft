@@ -14,10 +14,12 @@ html, body {
   color: #fff; }
 
 .flash-notice {
-  background: #3EA99F; }
+  background: #3EA99F;
+  border: solid 1px #307D7E; }
 
 .flash-error {
-  background: #F88017; }
+  background: #F88017;
+  border: solid 1px #F87217; }
 
 #wrap {
   background: #fff;
@@ -56,7 +58,8 @@ html, body {
     #wrap #navigation ul {
       background: #FAF8CC;
       border-bottom: solid 1px #FFE87C;
-      height: 2.33em; }
+      height: 2.45em;
+      display: block; }
       #wrap #navigation ul li {
         display: inline; }
         #wrap #navigation ul li a {
@@ -71,6 +74,12 @@ html, body {
           background: #FFE87C; }
   #wrap #content {
     clear: both; }
+    #wrap #content .sortable-categories ul {
+      display: block;
+      padding-left: 1em;
+      list-style-type: disc; }
+      #wrap #content .sortable-categories ul li {
+        display: block; }
   #wrap #footer {
     text-align: center;
     font-size: 0.83em; }
