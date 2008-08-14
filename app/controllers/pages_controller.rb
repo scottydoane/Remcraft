@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  # before_filter :has_permission?, :except => [ :error, :denied ]
+  
   # GET /pages
   # GET /pages.xml
   def index
