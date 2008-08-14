@@ -39,4 +39,4 @@ production:
   database: remcraft_production
   username: sdoane
   password: prodigious
-  socket: /var/run/mysqld/mysql.sock
+  socket: /var/run/mysqld/mysqld.sock
