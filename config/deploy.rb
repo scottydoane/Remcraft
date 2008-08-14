@@ -1,5 +1,4 @@
 set :application, "remcraft"
-set :repository,  "set your repository location here"
 set :repository,  "git@scorpio.randomproductions.net:remcraft.git"
 
 set :user, "randompr"
@@ -14,6 +13,7 @@ set :deploy_to, "/home/randompr/rails/#{application}"
 # your SCM below:
 # set :scm, :subversion
 set :scm, :git
+set :scm_user, 'randompr'
 
 role :app, "scorpio.randomproductions.net"
 role :web, "scorpio.randomproductions.net"
