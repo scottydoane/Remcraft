@@ -1,0 +1,14 @@
+<ul>
+  <li>
+    <%= check_box_tag "active", 1, (true if @product.categories.include?(category)), :id => "category-#{category.id}" %>
+    <%= 
+      observe_field(
+        "category-#{category.id}",
+        :url => { :controller => 'placements', :action => 'update', :product_id => @product, :category_id => category },
+        :with => 'activate'
+      ) 
+    %>
+    <%= link_to category.name, category_placements_url(category) %>
+    <%= render :partial => 'placements/category', :collection => category.children if category.children.size > 0 %>
+  </li>
+</ul>

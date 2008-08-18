@@ -3,5 +3,5 @@
 <span class='add-new-link'><%= link_to "Add new root category", new_category_path %></span>
 
 <div class='sortable-categories'>
-<%= sortable_categories Category, { :controller => 'categories', :action => 'update_positions' } %>
+<%= category_tree Category, 'sortable', { :controller => 'categories', :action => 'update_positions' } %>
 </div>

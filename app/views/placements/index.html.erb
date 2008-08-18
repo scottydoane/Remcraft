@@ -1,3 +1,28 @@
 <% content_for :subnavigation do %>
-<%= render :partial => 'products/subnavigation' %>
+<%= render :partial => 'products/subnavigation' if @product %> 
 <% end -%>
+
+<% if @product -%>
+<h1>Product Placement</h1>
+<div class='sortable-categories'>
+  <%= render :partial => 'placements/category', :collection => Category.roots %>
+</div>
+<% end -%>
+
+<% if @category -%>
+<h1>Order Products Within a Category</h1>
+  <div id="list">
+    <% for product in @category.products -%>
+    <div class='placement' id='list_<%= Placement.find_by_product_id_and_category_id(product, @category).id -%>'>
+      <div class='name'>
+        <%= product.name %><br />
+        <%= image_tag(product.images.first.public_filename("small")) rescue "No Image" -%>
+      </div>
+    </div>
+    <% end -%>
+  </div>
+  <%= sortable_element("list", 
+      :url => { :controller => 'placements', :action => 'reorder' }, 
+      :tag => 'div') -%>
+
+<% end %>

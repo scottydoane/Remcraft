@@ -9,9 +9,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
-  map.resources :products, :has_many => [ :images, :placements ]
+  map.resources :products, :has_many => [ :images, :placements, :customizations ]
   
-  map.resources :categories
+  map.resources :categories, :has_many => [ :placements ]
+  map.resources :placements 
+  
   map.resources :options
   
   map.static '/info/:permalink', :controller => 'pages', :action => 'show'

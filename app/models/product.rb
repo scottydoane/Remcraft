@@ -6,6 +6,7 @@ class Product < ActiveRecord::Base
   has_many :options, :through => :qualities
   
   has_many :placements
+  has_many :categories, :through => :placements
   
   validates_presence_of :sku, :on => :create, :message => "can't be blank"
   validates_presence_of :name, :on => :create, :message => "can't be blank"
