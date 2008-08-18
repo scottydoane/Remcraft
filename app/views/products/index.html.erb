@@ -2,15 +2,21 @@
 <span class='add-new-link'><%= link_to "New product", new_product_path %></span>
 <table>
   <tr>
+    <th style='text-align: center;'>Photo</th>
     <th>Name</th>
     <th>Description</th>
+    <th>Published</th>
     <th class='actions'>Actions</th>
   </tr>
 
 <% for product in @products %>
   <tr>
+    <td style='text-align: center;'>
+      <%= image_tag product.images.first.public_filename(:mini) rescue nil %>
+    </td>
     <td><%= link_to product.name, edit_product_path(product) %></td>
     <td><%=h truncate(product.description, 255) %></td>
+    <td><%= published_check(product) %></td>
     <td class='actions'>
       <%= link_to 'Preview', product %> 
       <%= link_to 'Delete', product, :confirm => 'Are you sure?', :method => :delete %>

@@ -33,6 +33,7 @@
             = render :partial => 'shared/admin_navigation' if current_user
         #content
           .gutter
+            = content_tag(:div, yield(:subnavigation), :class => 'subnavigation') if yield(:subnavigation)
             = yield
 
         #footer

@@ -9,17 +9,15 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
-  map.resources :products, :has_many => :images
+  map.resources :products, :has_many => [ :images, :placements ]
   
   map.resources :categories
   map.resources :options
   
+  map.static '/info/:permalink', :controller => 'pages', :action => 'show'
   map.with_options :controller => 'pages' do |pages|
-    pages.about 'about', :action => 'about'
-    pages.contact 'contact', :action => 'contact'
-    pages.privacy 'privacy', :action => 'privacy'
-    pages.error 'error', :action => 'error'
-    pages.denied 'denied', :action => 'denied'
+    pages.error 'access-error', :action => 'error'
+    pages.denied 'access-denied', :action => 'denied'
   end
   map.resources :pages
   

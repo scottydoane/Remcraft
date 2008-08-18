@@ -7,4 +7,9 @@ module ApplicationHelper
   def stylesheet(*files)
     content_for(:head) { stylesheet_link_tag(*files) }
   end
+
+  def published_check(object)
+    object.published ? image_tag('published.png') : image_tag('unpublished.gif')
+  end
+  
 end

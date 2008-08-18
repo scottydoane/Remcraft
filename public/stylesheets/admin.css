@@ -74,6 +74,17 @@ html, body {
           background: #FFE87C; }
   #wrap #content {
     clear: both; }
+    #wrap #content .subnavigation {
+      text-align: center; }
+      #wrap #content .subnavigation ul {
+        padding: 0.33em; }
+        #wrap #content .subnavigation ul li {
+          display: inline; }
+          #wrap #content .subnavigation ul li a {
+            padding: 0.33em 1.33em;
+            text-decoration: none; }
+          #wrap #content .subnavigation ul li a:hover {
+            background: #eee; }
     #wrap #content .sortable-categories ul {
       display: block;
       padding-left: 1em;

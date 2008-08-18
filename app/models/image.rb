@@ -15,4 +15,5 @@ class Image < ActiveRecord::Base
     
   belongs_to :imageable, :polymorphic => true
   acts_as_list :scope => 'imageable_id = #{:imageable_id} AND imageable_type = \'#{:imageable_type}\''
+    
 end

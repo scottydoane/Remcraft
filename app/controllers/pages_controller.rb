@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  # before_filter :has_permission?, :except => [ :error, :denied ]
+  # before_filter :has_permission?, :except => [ :show, :error, :denied ]
   
   # GET /pages
   # GET /pages.xml
@@ -15,7 +15,12 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.xml
   def show
-    @page = Page.find(params[:id])
+    if params[:permalink]
+      @page = Page.find_by_permalink(params[:permalink])
+      raise ActiveRecord::RecordNotFound, "Page not found" if @page.nil?
+    else
+      @page = Page.find(params[:id])
+    end
 
     respond_to do |format|
       format.html # show.html.erb
