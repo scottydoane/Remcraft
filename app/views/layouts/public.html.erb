@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Remcraft Lighting Products, Inc. - <%= controller.action_name %></title>
+
+  <%= stylesheet_link_tag 'public' %>
+  <!--[if IE 6]> 
+    <%= stylesheet_link_tag 'ie6' %>
+  <![endif]-->
+  <!--[if IE 7]> 
+    <%= stylesheet_link_tag 'ie7' %>
+  <![endif]-->
+  
+  <%= javascript_include_tag :all, :cache => true %>
+  <%= yield(:head) %>
+  
+</head>
+<body>
+
+	<div id="wrap">
+		<div id="header">
+		  <div class='gutter'>
+        <object
+          type="application/x-shockwave-flash" data="/flash/banner_conv.swf" 
+          width="425" height="82">
+        <param name="movie" value="/flash/banner_conv.swf" />
+        </object>  		    
+		  </div>
+		</div>
+		
+		<div id="special">
+		  <%= flash[:notice] %>
+		</div>  
+  	
+		<ul id='nav'>
+      <li><%= link_to 'Home', root_url %></li>
+	    <li><a href='baci/index.html'>BACI Mirrors</a></li>
+      <li><a href='echo/index.html'>ECHO Mirrors</a></li>
+      <li><a href='piccolo-mirrors/index.html'>PICCOLO Mirrors</a></li>
+      <li><a href='g-9/index.html'>BACI Lighting</a></li>
+      <li><a href='bullets/index.html'>RETRO Lighting</a></li>
+      <li><%= link_to 'About Remcraft', static_url(:permalink => 'about') %></li>
+      <li><a href='contact.html' style='border-right: none'>Contact Us</a></li>
+    </ul>
+    		
+    <div id="content<%= '-onecolumn' if (@page.sidebar.empty? rescue true) %>">
+      <div class="gutter">
+        <%= yield  %>
+      </div>
+  	</div>
+    
+    <% if (@page.sidebar rescue false) %>
+  	<div id="sidebar">
+  	  <div class="gutter">
+        <%= RedCloth.new(@page.sidebar).to_html %>
+  	  </div>
+  	</div>
+    <% end %>
+    
+		<div id="footer">
+		  <div class='gutter'>
+        <%= render :partial => 'shared/footer' %>  
+		  </div>
+		</div>	
+  </div> <!-- End #wrap -->
+
+</body>
+</html>
+

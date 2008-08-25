@@ -17,8 +17,8 @@ set :rails_env, "staging"
 # set :scm, :subversion
 set :scm, :git
 set :scm_user, 'scotty'
+set :git_enable_submodules, true
 
-set :deploy_via, :remote_cache
 set :port, 7822
 
 role :app, "sagittarius.geekbehindthecurtain.com"
