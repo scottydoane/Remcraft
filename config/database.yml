@@ -37,8 +37,8 @@ staging:
   adapter: mysql
   encoding: utf8
   database: remcraft_staging
-  username: sdoane
-  password: prodigious
+  username: root
+  password: pr0d1G10u$
   socket: /var/run/mysqld/mysqld.sock
 
 production:
