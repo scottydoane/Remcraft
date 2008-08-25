@@ -33,6 +33,14 @@ test:
   password: prodigious
   socket: /tmp/mysql.sock
 
+staging:
+  adapter: mysql
+  encoding: utf8
+  database: remcraft_staging
+  username: sdoane
+  password: prodigious
+  socket: /var/run/mysqld/mysqld.sock
+
 production:
   adapter: mysql
   encoding: utf8
