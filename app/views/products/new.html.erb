@@ -1,32 +1,10 @@
 <h1>Add a New Product</h1>
 
-<% form_for(@product) do |f| %>
-  <%= f.error_messages %>
+<% form_for(@product) do |@f| %>
+  <%= @f.error_messages %>
+  <%= render :partial => 'form' %>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :sku %><br />
-    <%= f.text_field :sku %>
-  </p>
-
-  <p>
-    <%= f.label :product_code %><br />
-    <%= f.text_field :product_code %>
-  </p>
-
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.check_box :published %>
-    <%= f.label :published %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
+    <%= @f.submit "Create", :class => 'submit' %>
   </p>
 <% end %>
 

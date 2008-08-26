@@ -1,0 +1,23 @@
+<p>
+  <%= @f.label :name %>
+  <%= @f.text_field :name %>
+</p>
+
+<p>
+  <%= @f.label :sku %>
+  <%= @f.text_field :sku %>
+</p>
+
+<p>
+  <%= @f.label :product_code %>
+  <%= @f.text_field :product_code %>
+</p>
+
+<p>
+  <%= @f.label :description %>
+  <%= @f.text_area :description, :size => '44x4' %>
+</p>
+<p>
+  <%= @f.check_box :published %>
+  <%= @f.label :published, {}, :class => 'checkbox' %>
+</p>

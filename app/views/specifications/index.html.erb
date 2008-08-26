@@ -1,0 +1,39 @@
+<% content_for :subnavigation do %>
+<%= render :partial => 'products/subnavigation' %>
+<% end -%>
+
+<h1>Product Specifications</h1>
+<% form_for(@specification, :url => { :action => "create" }) do |f| -%>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :size => '44x4' %>
+  </p>
+  <p>
+    <%= f.submit "Add Specification", :class => 'submit' %>
+  </p>
+<% end -%>
+
+<h2>Existing Product Specifications</h2>
+<table border="0" cellspacing="5" cellpadding="5">
+  <tr>
+    <th>Name</th>
+    <th>Specification</th>
+    <th>Actions</th>
+  </tr>
+<% for specification in @object.specifications -%>
+  <tr>
+    <td><%= specification.name %></td>
+    <td><%= specification.description %></td>
+    <td>
+      <%= link_to 'Edit' %> |
+      <%= link_to 'Delete', 
+        product_specification_url(@object,specification), :confirm => 'Are you sure?', :method => :delete %>
+    </td>    
+  </tr>
+<% end -%>
+</table>

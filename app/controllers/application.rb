@@ -14,4 +14,13 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+
+  private
+  
+  def find_polymorphic_object
+    sections = request.env['REQUEST_URI'].scan(%r{(\w*)/(\d*)}).reverse.reject { |x| x[1] == "" }
+    sections.map! { |controller_name, id| [controller_name.singularize.camelize, id] }
+    object, id = sections[0]
+    eval("@#{object.downcase} = #{object}.find(#{id})")    
+  end
 end

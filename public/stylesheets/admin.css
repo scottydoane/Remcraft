@@ -21,6 +21,22 @@ html, body {
   background: #F88017;
   border: solid 1px #F87217; }
 
+input, textarea {
+  font-size: 1em;
+  padding: 1px;
+  border: solid 1px #4c4c4c; }
+
+label {
+  font-size: .9em;
+  font-weight: bold;
+  display: block; }
+
+label.checkbox {
+  display: inline; }
+
+.submit {
+  margin-top: .5em; }
+
 #wrap {
   background: #fff;
   border: solid 1px #000;
