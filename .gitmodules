@@ -28,6 +28,6 @@
 [submodule "vendor/plugins/acts_as_list"]
   path = vendor/plugins/acts_as_list
   url = git://github.com/rails/acts_as_list.git
-[submodule "acts_as_category"]
-	path = acts_as_category
+[submodule "vendor/pluginsacts_as_category"]
+	path = vendor/pluginsacts_as_category
 	url = git://github.com/scotty/acts_as_category.git
