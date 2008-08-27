@@ -29,4 +29,8 @@ namespace :deploy do
   task :restart do
     run '/etc/init.d/lighttpd restart'
   end
+  
+  task :after_symlink do
+    sudo 'sudo chown -R www-data:www-data /var/www/rails/remcraft/current'
+  end
 end
