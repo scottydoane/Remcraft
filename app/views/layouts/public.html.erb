@@ -37,11 +37,9 @@
   	
 		<ul id='nav'>
       <li><%= link_to 'Home', root_url %></li>
-	    <li><a href='baci/index.html'>BACI Mirrors</a></li>
-      <li><a href='echo/index.html'>ECHO Mirrors</a></li>
-      <li><a href='piccolo-mirrors/index.html'>PICCOLO Mirrors</a></li>
-      <li><a href='g-9/index.html'>BACI Lighting</a></li>
-      <li><a href='bullets/index.html'>RETRO Lighting</a></li>
+      <% for root in Category.roots %>
+      <li><%= link_to root.name, category_url(root) %></li>
+      <% end %>
       <li><%= link_to 'About Remcraft', static_url(:permalink => 'about') %></li>
       <li><a href='contact.html' style='border-right: none'>Contact Us</a></li>
     </ul>
