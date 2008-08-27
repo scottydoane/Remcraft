@@ -31,3 +31,6 @@
 [submodule "vendor/pluginsacts_as_category"]
 	path = vendor/pluginsacts_as_category
 	url = git://github.com/scotty/acts_as_category.git
+[submodule "vendor/plugins/salty_slugs"]
+	path = vendor/plugins/salty_slugs
+	url = git://github.com/norbauer/salty_slugs.git

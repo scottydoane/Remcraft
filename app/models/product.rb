@@ -1,9 +1,8 @@
 class Product < ActiveRecord::Base
+  has_slug :source_column => :name, :sync_slug => true
+
   has_many :images, :as => :imageable, :dependent => :destroy, :order => :position
   has_many :assets, :as => :assetable, :dependent => :destroy, :order => :position
-
-  has_many :qualities
-  has_many :options, :through => :qualities
   
   has_many :placements
   has_many :categories, :through => :placements

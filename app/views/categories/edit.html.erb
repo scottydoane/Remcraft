@@ -8,7 +8,7 @@
   </p>
 
   <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Update", :class => 'submit' %>
     or
     <%= link_to 'Delete', category_path(@category), :confirm => "Are you sure you want to do this?\r\n\r\nDeleting a category will also delete any sub-categories associated with this category. This is irreversible.", :method => 'delete' %>
     
