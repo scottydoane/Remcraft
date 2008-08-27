@@ -41,7 +41,7 @@
       <li><%= link_to root.name, category_url(root) %></li>
       <% end %>
       <li><%= link_to 'About Remcraft', static_url(:permalink => 'about') %></li>
-      <li><a href='contact.html' style='border-right: none'>Contact Us</a></li>
+      <li><%= link_to 'Contact Us', :controller => 'contact', :action => 'new' %></li>
     </ul>
     		
     <div id="content<%= '-onecolumn' if (@page.sidebar.empty? rescue true) %>">

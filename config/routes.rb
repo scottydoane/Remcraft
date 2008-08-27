@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :placements 
   
   map.resources :options
+  map.resources :contacts
   
   map.static '/info/:permalink', :controller => 'pages', :action => 'show'
   map.with_options :controller => 'pages' do |pages|
