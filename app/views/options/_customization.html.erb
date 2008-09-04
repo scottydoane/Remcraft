@@ -1,0 +1,15 @@
+<div class="customization">
+  <% fields_for "option[customization_attributes][]", customization do |f| %>
+    <p>
+      Customization: <%= f.text_field :name, :index => nil %>
+      Price Modifier: <%= f.text_field :modifier, :index => nil %>
+      <% if customization.new_record? %>
+        <%= link_to_function "remove", "$(this).up('.customization').remove()" %>
+      <% else %>
+        <%= link_to_function "remove", "mark_for_destroy(this)" %>
+        <%= f.hidden_field :id, :index => nil %>
+        <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+      <% end %>
+    </p>
+  <% end %>
+</div>

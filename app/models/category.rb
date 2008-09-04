@@ -5,7 +5,7 @@ class Category < ActiveRecord::Base
   has_many :placements, :order => :position
   has_many :products, :through => :placements, :order => :position
   
-  has_many :qualities
-  has_many :options, :through => :qualities
+  has_many :options
+  has_many :customizations, :through => :options
   
 end

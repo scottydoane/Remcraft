@@ -1,0 +1,7 @@
+<p>
+  Option Family Name: <%= f.text_field :name %>
+</p>
+<div id="customizations">
+  <%= render :partial => 'customization', :collection => @option.customizations %>
+</div>
+<%= add_customization_link "Add a customization" %>

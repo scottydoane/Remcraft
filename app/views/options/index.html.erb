@@ -1,0 +1,32 @@
+<% content_for :subnavigation do %>
+<%= render :partial => 'categories/subnavigation' %>
+<% end -%>
+
+<span class='add-new-link'><%= link_to "New options", new_category_option_path %></span>
+
+<table>
+  <tr>
+    <th style='text-align: center;'>Option Family</th>
+    <th>Customizaitons</th>
+    <th class='actions'>Actions</th>
+  </tr>
+
+<% for option in @category.options %>
+  <tr>
+    <td style='vertical-align: top; width: 12em'>
+      <%= option.name %>
+    </td>
+    <td>
+      <ul>
+        <% for c in option.customizations -%>
+        <li><%= c.name %> (<%= c.modifier %>)</li>
+        <% end  -%>
+      </ul>
+    </td>
+    <td class='actions'>
+      <%= link_to 'Edit', edit_category_option_url(@category, option) %> 
+      <%= link_to 'Delete', option, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
