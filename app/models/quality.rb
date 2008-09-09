@@ -1,4 +1,4 @@
 class Quality < ActiveRecord::Base
   belongs_to :product
-  belongs_to :option
+  belongs_to :customization
 end 

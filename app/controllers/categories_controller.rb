@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.xml
   def show
-    @category = Category.slugged_find(params[:id])
+    @category = Category.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -32,7 +32,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
-    @category = Category.slugged_find(params[:id])
+    @category = Category.find(params[:id])
   end
 
   # POST /categories
@@ -55,7 +55,7 @@ class CategoriesController < ApplicationController
   # PUT /categories/1
   # PUT /categories/1.xml
   def update
-    @category = Category.slugged_find(params[:id])
+    @category = Category.find(params[:id])
 
     respond_to do |format|
       if @category.update_attributes(params[:category])

@@ -25,16 +25,6 @@ class PlacementsController < ApplicationController
     render :update do |page|
       page.visual_effect :highlight, "list"
     end    
-  end
-  
-  private
-  
-  def find_polymorphic_object
-    sections = request.env['REQUEST_URI'].scan(%r{(\w*)/(\d*)}).reverse.reject { |x| x[1] == "" }
-    sections.map! { |controller_name, id| [controller_name.singularize.camelize, id] }
-    object, id = sections[0]
-    eval("@#{object.downcase} = #{object}.find(#{id})")    
-  end
-  
+  end  
 
 end

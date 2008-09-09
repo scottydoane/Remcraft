@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  has_slug :source_column => :name, :sync_slug => true
+  # has_slug :source_column => :name, :sync_slug => true
 
   has_many :images, :as => :imageable, :dependent => :destroy, :order => :position
   has_many :assets, :as => :assetable, :dependent => :destroy, :order => :position
@@ -9,6 +9,9 @@ class Product < ActiveRecord::Base
   
   has_many :specifications
   
+  has_many :qualities
+  has_many :customizations, :through => :qualities
+   
   validates_presence_of :sku, :on => :create, :message => "can't be blank"
   validates_presence_of :name, :on => :create, :message => "can't be blank"
 end

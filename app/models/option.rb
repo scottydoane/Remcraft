@@ -1,6 +1,6 @@
 class Option < ActiveRecord::Base
   has_many :customizations, :dependent => :destroy
-
+  
   validates_presence_of :name
   validates_associated :customizations
   

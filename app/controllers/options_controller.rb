@@ -41,6 +41,6 @@ class OptionsController < ApplicationController
   private
   
   def find_category
-    @category = Category.slugged_find(params[:category_id])
+    @category = Category.find(params[:category_id])
   end
 end
