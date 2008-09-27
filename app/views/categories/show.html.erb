@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th style='text-align: center;'>Photo</th>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for product in @category.products -%>
+  <tr>
+    <td style='text-align: center;'>
+      <%= image_tag product.images.first.public_filename(:small) rescue nil %>
+    </td>
+    <td><%= link_to product.name, product_path(product) %></td>
+    <td><%=h truncate(product.description, 255) %></td>
+  </tr>
+  <% end -%>
+</table>
