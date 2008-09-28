@@ -7,7 +7,7 @@ class Image < ActiveRecord::Base
       :extralarge => '1200>',
       :large => '600>',
       :medium => '300>',
-      :small => '100>',
+      :small => '180>',
       :mini => '60'
     }
 

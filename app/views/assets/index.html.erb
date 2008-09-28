@@ -3,19 +3,19 @@
   <%= render :partial => 'categories/subnavigation' if @object.is_a? Category %>
 <% end -%>
 
-<h1><%= @object.class %> Images</h1>
-<% form_for(Image.new, :url => { :action => "create" }, :html => { :multipart => true }) do |f| -%>
+<h1><%= @object.class %> Assets</h1>
+<% form_for(Asset.new, :url => { :action => "create" }, :html => { :multipart => true }) do |f| -%>
   <%= f.error_messages %>
   <p>
     <%= f.label :uploaded_data %>
     <%= f.file_field :uploaded_data %>
   </p>
   <p>
-    <%= f.submit "Add Photo", :class => 'submit' %>
+    <%= f.submit "Add Asset", :class => 'submit' %>
   </p>
 <% end -%>
 
-<h2>Existing <%= @object.class %> Images</h2>
-<% for image in @object.images -%>
-<%= image_tag image.public_filename(:mini) %>
+<h2>Existing <%= @object.class %> Assets</h2>
+<% for asset in @object.assets -%>
+<%= asset.filename %>
 <% end -%>
