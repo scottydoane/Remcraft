@@ -185,3 +185,20 @@ ul.products li a {
 /* ============================================================================
 	Product Details Page 																																	 
 ============================================================================*/
+.product .main-image {
+  float: left;
+}
+.product .description {
+  padding-left: 20px;
+  margin-left: 320px;
+  border-left: solid 1px #ccc;
+  color: #666666;
+}
+.product .description h2 {
+  color: #4080be;
+  border-bottom: solid 1px #ccc;
+}
+.product .description ul {
+  list-style-type: none;
+  padding: 0;
+}

@@ -1,19 +1,22 @@
-<%= image_tag @product.images.first.public_filename(:medium) rescue nil %>
+<div class='product'>
+  <span class='main-image'><%= image_tag @product.images.first.public_filename(:medium) rescue nil %></span>
 
-<h1><%=h @product.name %></h1>
-<p><%=h @product.description %></p>
+  <div class='description'>
+    <h1><%=h @product.name %></h1>
+    <p><%=h @product.description %></p>
 
-<% for specification in @product.specifications %>
-<h2><%=h specification.name %></h2>
-<p><%= RedCloth.new(specification.description).to_html %></p>
-<% end %>
+    <% for specification in @product.specifications %>
+    <h2><%=h specification.name %></h2>
+    <p><%= RedCloth.new(specification.description).to_html %></p>
+    <% end %>
 
-<% @product.customizations.group_by(&:option).each do |option, customizations| %>
-  <h2><%=h option.name %></h2>
-  <ul>
-    <% for customization in customizations -%>
-    <li><%= customization.name %></li>
-    <% end -%>
-  </ul>
-  
-<% end %>
+    <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+      <h2><%=h option.name %></h2>
+      <ul>
+        <% for customization in customizations -%>
+        <li><%= customization.name %></li>
+        <% end -%>
+      </ul>
+    <% end %>  
+  </div>
+</div>
