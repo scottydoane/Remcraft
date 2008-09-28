@@ -6,6 +6,15 @@
     <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :size => '66x8' %>
+  </p>
 
   <p>
     <%= f.hidden_field :parent_id, :value => params[:parent_id] %>

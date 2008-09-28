@@ -15,10 +15,17 @@ a:hover {
   text-decoration: none;
 }
 h1 {
-  font-size: 120%;
+  color: #4080be;
+  font-size: 160%;
 }
 h2 {
   font-size: 100%;
+}
+p {
+  color: #666666;
+}
+.clear {
+  clear: both;
 }
 /* ============================================================================
 	LAYOUT 																																	 
@@ -134,4 +141,47 @@ body {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	font-size: 10px;
 	color: #4080BF;
-	
+}
+/* ============================================================================
+	Category Page 																																	 
+============================================================================*/
+
+.category-description {
+  border-bottom: solid 1px #999;
+}
+.category-description img {
+  float: left;
+  padding: 0px 8px 8px 0;
+}
+
+ul.product {
+  padding: 0;
+  margin: 0;
+}
+ul.products li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  width: 295px;
+  height: 200px;
+  border-bottom: solid 1px #999;
+  color: #666666;
+}
+ul.products li div {
+  height: 197px;
+  border-bottom: solid 3px #fff;
+}
+ul.products li div:hover {
+  border-bottom: solid 3px #4080be;
+}
+ul.products li img {
+  text-align: center;
+}
+ul.products li a {
+  text-decoration: none;
+}
+
+/* ============================================================================
+	Product Details Page 																																	 
+============================================================================*/
