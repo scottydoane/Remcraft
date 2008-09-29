@@ -5,10 +5,6 @@
     <h1><%=h @product.name %></h1>
     <p><%=h @product.description %></p>
 
-    <% for specification in @product.specifications %>
-    <h2><%=h specification.name %></h2>
-    <p><%= RedCloth.new(specification.description).to_html %></p>
-    <% end %>
 
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
       <h2><%=h option.name %></h2>
@@ -18,5 +14,11 @@
         <% end -%>
       </ul>
     <% end %>  
+
+    <% for specification in @product.specifications %>
+      <h2><%=h specification.name %></h2>
+      <p><%= RedCloth.new(specification.description).to_html %></p>
+    <% end %>
+
   </div>
 </div>
