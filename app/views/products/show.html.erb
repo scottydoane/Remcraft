@@ -2,7 +2,7 @@
   <span class='main-image'><%= image_tag @product.images.first.public_filename(:medium) rescue nil %></span>
 
   <div class='description'>
-    <h1><%=h @product.name %></h1>
+    <h1><%=h @product.product_code %> <%=h @product.name %></h1>
     <p><%=h @product.description %></p>
 
 

@@ -14,7 +14,7 @@
     <td style='text-align: center;'>
       <%= image_tag product.images.first.public_filename(:mini) rescue nil %>
     </td>
-    <td><%= link_to product.name, edit_product_path(product) %></td>
+    <td><%= link_to "#{product.product_code} #{product.name}", edit_product_path(product) %></td>
     <td><%=h truncate(product.description, 255) %></td>
     <td><%= published_check(product) %></td>
     <td class='actions'>
