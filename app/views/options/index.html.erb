@@ -3,8 +3,27 @@
 <% end -%>
 
 <span class='add-new-link'><%= link_to "New options", new_category_option_path %></span>
+<span class='sort'><%= link_to_function "Sort", visual_effect(:appear, "list" ) %></span>
 
-<table>
+<div id="list" style='display: none'>
+  <h1>Order Option Families</h1>
+  <span class='add-new-link'><%= link_to_function "I'm done sorting", visual_effect(:fade, "list" ) %></span>
+  
+  <% for option in @category.options %>
+  <div class='placement' id='list_<%= option.id -%>'>
+    <div class='name'>
+      <%= option.name %><br />
+    </div>
+  </div>
+  <% end -%>
+</div>
+
+
+<%= sortable_element("list", 
+    :url => { :controller => 'options', :action => 'reorder' }, 
+    :tag => 'div') -%>
+
+<table id='data'>
   <tr>
     <th style='text-align: center;'>Option Family</th>
     <th>Customizaitons</th>
@@ -30,3 +49,4 @@
   </tr>
 <% end %>
 </table>
+

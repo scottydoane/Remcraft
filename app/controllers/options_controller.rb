@@ -1,5 +1,5 @@
 class OptionsController < ApplicationController
-  before_filter :find_category, :except => [ :destroy ]
+  before_filter :find_category, :except => [ :destroy, :reorder ]
   
   def new
     @option = Option.new
@@ -37,6 +37,14 @@ class OptionsController < ApplicationController
     redirect_to :back
   end
   
+  def reorder
+    params[:list].each_with_index do |id, position|
+      Option.update(id, :position => position + 1)
+    end
+    render :update do |page|
+      page.visual_effect :highlight, "list"
+    end    
+  end  
   
   private
   

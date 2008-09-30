@@ -10,7 +10,7 @@ class Option < ActiveRecord::Base
         customizations.build(attributes)
       else
         customization = customizations.detect { |t| t.id == attributes[:id].to_i }
-        customization.attributes = attributes
+        customization.update_attributes(attributes)
       end
     end
   end
