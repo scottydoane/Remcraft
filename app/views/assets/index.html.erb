@@ -15,7 +15,22 @@
   </p>
 <% end -%>
 
+
 <h2>Existing <%= @object.class %> Assets</h2>
+<table>
+  <tr>
+    <th style='text-align: center;'>Photo</th>
+    <th class='actions'>Actions</th>
+  </tr>
+
 <% for asset in @object.assets -%>
-<%= asset.filename %>
+<tr>
+  <td style='text-align: center;'>
+    <%= asset.filename %>
+  </td>
+  <td class='actions'>
+    <%= link_to 'Delete', asset, :confirm => 'Are you sure?', :method => :delete %>
+  </td>
+</tr>
 <% end -%>
+</table>

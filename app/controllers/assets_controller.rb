@@ -18,4 +18,16 @@ class AssetsController < ApplicationController
       redirect_to :back
     end
   end
+
+  def destroy
+    return unless request.delete?
+    @asset = Asset.find(params[:id])
+    @asset.destroy
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.xml  { head :ok }
+    end
+  end
+
 end

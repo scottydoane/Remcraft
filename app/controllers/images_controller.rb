@@ -19,4 +19,15 @@ class ImagesController < ApplicationController
     end
   end
     
+  def destroy
+    return unless request.delete?
+    @image = Image.find(params[:id])
+    @image.destroy
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.xml  { head :ok }
+    end
+  end
+  
 end

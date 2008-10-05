@@ -16,6 +16,20 @@
 <% end -%>
 
 <h2>Existing <%= @object.class %> Images</h2>
+<table>
+  <tr>
+    <th style='text-align: center;'>Photo</th>
+    <th class='actions'>Actions</th>
+  </tr>
+
 <% for image in @object.images -%>
-<%= image_tag image.public_filename(:mini) %>
+<tr>
+  <td style='text-align: center;'>
+    <%= image_tag image.public_filename(:mini) %>
+  </td>
+  <td class='actions'>
+    <%= link_to 'Delete', image, :confirm => 'Are you sure?', :method => :delete %>
+  </td>
+</tr>
 <% end -%>
+</table>
