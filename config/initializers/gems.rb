@@ -1,1 +1,1 @@
-require 'rmagick'
+gem 'rmagick'
