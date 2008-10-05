@@ -116,6 +116,9 @@ body {
 	text-decoration: none;
 	border-right: solid 1px #4080bf;
 }
+#nav li.last a {
+  border-right: none;
+}
 #nav a:hover {
   background-color: #fff;
 	color: #111;
