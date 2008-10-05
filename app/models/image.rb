@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   has_attachment :max_size => 15.megabytes,
     :storage => :file_system,
     :content_type => :image,
-    :path_prefix => 'public/images/uploaded',
+    :path_prefix => 'public/images/uploads',
     :thumbnails => {
       :extralarge => '1200>',
       :large => '600>',

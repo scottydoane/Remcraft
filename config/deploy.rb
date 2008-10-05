@@ -31,6 +31,9 @@ namespace :deploy do
   end
   
   task :after_symlink do
-    sudo 'sudo chown -R www-data:www-data /var/www/rails/remcraft/current'
+    sudo 'sudo chown -R www-data:www-data /var/www/rails/remcraft/releases'
+    sudo 'sudo chmod 777 /var/www/rails/remcraft/current/tmp'
+    sudo 'sudo ln -s /var/www/rails/remcraft/uploads /var/www/rails/remcraft/current/public/images/uploads'
+    sudo 'sudo ln -s /var/www/rails/remcraft/assets /var/www/rails/remcraft/current/public/assets'
   end
 end
