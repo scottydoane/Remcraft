@@ -4,7 +4,8 @@ class Asset < ActiveRecord::Base
 
   has_attachment :storage => :file_system,
     :max_size => 6.megabytes, 
-    :file_system_path => 'public/assets'
+    :file_system_path => 'public/assets',
+    :processor => 'Rmagick'
     
   validates_as_attachment
 end
