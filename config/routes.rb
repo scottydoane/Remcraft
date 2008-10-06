@@ -9,9 +9,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
   map.resources :products, :has_many => [ :images, :assets, :placements, :specifications, :customizations, :qualities ]
-  map.resources :images, :assets
+  map.resources :categories, :has_many => [ :images, :placements, :options ]
+  map.resources :images
+  map.resources :assets
   
-  map.resources :categories, :has_many => [ :placements, :options, :images ]
   map.resources :options, :has_many => [ :customizations ]
 
   map.resources :placements 
