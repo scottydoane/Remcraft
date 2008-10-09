@@ -85,7 +85,7 @@ body {
   background: #4080bf url('../images/headerbar-photos.jpg') top right no-repeat;
   color: inherit;
 }
-#content {
+#content .gutter {
   border-right: solid 1px #999;
 }
 #footer {
@@ -150,7 +150,7 @@ body {
 ============================================================================*/
 
 .category-description {
-  border-bottom: solid 1px #999;
+  border-bottom: solid 3px #999;
 }
 .category-description img {
   float: left;
