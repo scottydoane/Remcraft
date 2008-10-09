@@ -47,4 +47,4 @@ production:
   database: remcraft_production
   username: remcraft_dbuser
   password: dbuser
-  socket: /var/run/mysqld/mysqld.sock
+  host: localhost
