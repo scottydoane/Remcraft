@@ -37,7 +37,7 @@ namespace :deploy do
     # sudo 'sudo chmod 777 /var/www/rails/remcraft/current/tmp'
     # sudo 'sudo ln -s /var/www/rails/remcraft/uploads /var/www/rails/remcraft/current/public/images/uploads'
     # sudo 'sudo ln -s /var/www/rails/remcraft/assets /var/www/rails/remcraft/current/public/assets'
-    run "rmdir #{deploy_to}/current/vendor/plugins"
+    run "rmdir -rf #{deploy_to}/current/vendor/plugins"
     run "ln -s #{deploy_to}/plugins #{deploy_to}/vendor/plugins"
     run "ln -s #{deploy_to}/uploads #{deploy_to}/current/public/images/uploads"
     run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
