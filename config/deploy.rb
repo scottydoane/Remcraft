@@ -19,7 +19,7 @@ set :use_sudo, false
 # set :scm, :subversion
 set :scm, :git
 set :scm_user, 'scotty'
-set :git_enable_submodules, true
+set :git_enable_submodules, false
 
 set :port, 7822
 
