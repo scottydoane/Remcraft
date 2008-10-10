@@ -41,5 +41,6 @@ namespace :deploy do
     run "ln -s #{deploy_to}/plugins #{deploy_to}/current/vendor/plugins"
     run "ln -s #{deploy_to}/uploads #{deploy_to}/current/public/images/uploads"
     run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
+    run "ln -s #{deploy_to}/shared/images #{deploy_to}/current/public/images/static"
   end
 end
