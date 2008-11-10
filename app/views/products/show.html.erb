@@ -11,6 +11,11 @@
   </span>
 
   <div class='description'>
+    <span class='breadcrumb'>
+      <%= link_to 'Home', root_url %> |
+      <%= link_to @product.categories.first.name, category_url(@product.categories.first) %> |
+      <%= @product.product_code %>
+    </span>
     <h1><%=h @product.product_code %> <%=h @product.name %></h1>
     <p><%=h @product.description %></p>
 
