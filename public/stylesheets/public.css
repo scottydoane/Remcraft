@@ -195,9 +195,20 @@ table.products a {
 .product .main-image {
   float: left;
 }
+.product .links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.product .links li {
+  float: left;
+}
+.product .links li img {
+  border: none;
+}
 .product .description {
   padding-left: 20px;
-  margin-left: 320px;
+  margin-left: 340px;
   border-left: solid 1px #ccc;
   color: #666666;
 }
