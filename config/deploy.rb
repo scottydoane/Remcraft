@@ -43,4 +43,22 @@ namespace :deploy do
     run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
     run "ln -s #{deploy_to}/shared/images #{deploy_to}/current/public/images/static"
   end
+  
+  desc "Restart the app server"
+  task :restart, :roles => :app do
+    send(run_method, "")
+    #send(run_method, "cd #{current_path} && mongrel_rails restart")
+  end
+
+  desc "Stop the app server"
+  task :stop_app, :roles => :app do
+    send(run_method, "")
+    #send(run_method, "cd #{current_path} && mongrel_rails stop")
+  end
+  
+  desc "Start the app server"
+  task :start_app, :roles => :app do
+    send(run_method, "")
+    #send(run_method, "cd #{current_path} && mongrel_rails start -d -p #{app_port} -e #{app_env} < /dev/null >& /dev/null")
+  end
 end
