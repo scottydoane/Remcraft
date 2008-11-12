@@ -19,6 +19,21 @@ class SpecificationsController < ApplicationController
     end
   end
   
+  def update
+    @specification = Specification.find(params[:id])
+
+    respond_to do |format|
+      if @specification.update_attributes(params[:specification])
+        flash[:notice] = 'Specification was successfully updated.'
+        format.html { redirect_to product_specifications_url(params[:product_id]) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
   def destroy
     return unless request.delete?
     @specification = Specification.find(params[:id])

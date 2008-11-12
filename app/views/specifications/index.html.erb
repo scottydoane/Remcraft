@@ -30,7 +30,7 @@
     <td><%= specification.name %></td>
     <td><%= specification.description %></td>
     <td>
-      <%= link_to 'Edit' %> |
+      <%= link_to 'Edit', edit_product_specification_url(@object,specification) %> |
       <%= link_to 'Delete', 
         product_specification_url(@object,specification), :confirm => 'Are you sure?', :method => :delete %>
     </td>    

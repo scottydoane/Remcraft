@@ -13,7 +13,7 @@
   <div class='description'>
     <span class='breadcrumb'>
       <%= link_to 'Home', root_url %> |
-      <%= link_to @product.categories.first.name, category_url(@product.categories.first) %> |
+      <%= link_to @product.categories.first.name, category_url(@product.categories.first) rescue nil %> |
       <%= @product.product_code %>
     </span>
     <h1><%=h @product.product_code %> <%=h @product.name %></h1>
@@ -21,7 +21,7 @@
 
 
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
-      <h2><%=h option.name %></h2>
+      <h2><%= option.name %></h2>
       <ul>
         <% for customization in customizations -%>
         <li><%= customization.name %></li>
@@ -30,7 +30,7 @@
     <% end %>  
 
     <% for specification in @product.specifications %>
-      <h2><%=h specification.name %></h2>
+      <h2><%= specification.name %></h2>
       <p><%= RedCloth.new(specification.description).to_html %></p>
     <% end %>
 

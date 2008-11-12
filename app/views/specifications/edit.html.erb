@@ -1,0 +1,15 @@
+<h1>Edit Specifications</h1>
+<% form_for(@specification, :url => { :action => "update" }) do |f| -%>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :size => '44x4' %>
+  </p>
+  <p>
+    <%= f.submit "Update Specification", :class => 'submit' %>
+  </p>
+<% end -%>

@@ -30,7 +30,7 @@ p {
 /* ============================================================================
 	LAYOUT 																																	 
 ============================================================================*/
-#wrap {
+.wrap {
 	min-width: 740px;
 	max-width: 960px;
   margin: 0 auto;
@@ -59,6 +59,7 @@ p {
 #footer {
 	clear: both;
 	padding: 0 48px;
+	padding-top: 12px;
 }
 
 #content .gutter {
@@ -168,7 +169,8 @@ table.products td {
   padding: 9px 0;
   margin: 3px 0;
   border-bottom: solid 1px #999;
-  height: 275px;
+  height: 225px;
+  width: 33%;
 }
 table.products td:hover {
   border-bottom: solid 3px #4080be;
@@ -211,6 +213,7 @@ table.products a {
   margin-left: 340px;
   border-left: solid 1px #ccc;
   color: #666666;
+  min-height: 500px;
 }
 .product .description h2 {
   color: #4080be;
@@ -218,5 +221,9 @@ table.products a {
 }
 .product .description ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.product .description ul li {
   padding: 0;
 }

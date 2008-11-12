@@ -19,8 +19,7 @@
   
 </head>
 <body>
-
-	<div id="wrap">
+  <div class="wrap">
 		<div id="header">
 		  <div class='gutter'>
         <object
@@ -30,7 +29,7 @@
         </object>  		    
 		  </div>
 		</div>
-		
+	</div>
 		<div id="special">
 		  <%= flash[:notice] %>
 		</div>  
@@ -43,7 +42,7 @@
       <li><%= link_to 'About Remcraft', static_url(:permalink => 'about') %></li>
       <li class='last'><%= link_to 'Contact Us', :controller => 'contacts', :action => 'new' %></li>
     </ul>
-    		
+<div class="wrap">
     <div id="content<%= '-onecolumn' if (@page.sidebar.empty? rescue true) %>">
       <div class="gutter">
         <%= yield  %>
