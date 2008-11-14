@@ -2,7 +2,7 @@
   <span class='main-image'>
     <%= image_tag @product.images.first.public_filename(:medium) rescue nil %>
   <ul class='links'>
-    <li><%= link_to image_tag('view-larger.gif'),  @product.images.first.public_filename(:large), :popup => true rescue nil %></li>
+    <li><%= link_to image_tag('view-larger.gif'),  @product.images.first.public_filename(:large), :rel => 'lightbox' rescue nil %></li>
     <%- if @product.assets.first -%>
     <li><%= link_to image_tag('download-data-sheet.gif'), @product.assets.first.public_filename %></li>
     <%- end -%>
