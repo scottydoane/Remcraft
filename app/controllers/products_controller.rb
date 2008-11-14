@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_filter :has_permission?, :except => [ :show ]
   
   def index
     @products = Product.find(:all)

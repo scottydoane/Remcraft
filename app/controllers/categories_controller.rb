@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  before_filter :has_permission?, :except => [ :show ]
+  
   def index
     @categories = Category.find(:all)
 
