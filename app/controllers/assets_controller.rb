@@ -1,5 +1,5 @@
 class AssetsController < ApplicationController
-  before_filter :has_permission?
+  before_filter :logged_in?
   before_filter :find_polymorphic_object
   
   def index

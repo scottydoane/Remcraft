@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :has_permission?, :except => [ :show ]
+  before_filter :logged_in?, :except => [ :show ]
   
   def index
     @products = Product.find(:all)

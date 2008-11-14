@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :has_permission?
+  before_filter :logged_in?
 
   # render new.rhtml
   def new
