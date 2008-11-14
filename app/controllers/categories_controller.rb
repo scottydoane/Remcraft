@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :logged_in?, :except => [ :show ]
+  before_filter :has_permission?, :except => [ :show ]
   
   def index
     @categories = Category.find(:all)

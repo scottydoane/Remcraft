@@ -1,5 +1,5 @@
 class QualitiesController < ApplicationController
-  before_filter :logged_in?
+  before_filter :has_permission?
   before_filter :find_polymorphic_object, :except => [ :update, :reorder ]
 
   def update

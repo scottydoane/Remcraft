@@ -1,5 +1,5 @@
 class OptionsController < ApplicationController
-  before_filter :logged_in?
+  before_filter :has_permission?
   before_filter :find_category, :except => [ :destroy, :reorder ]
   
   def new

@@ -1,5 +1,5 @@
 class ImagesController < ApplicationController
-  before_filter :logged_in?, :only => [ :create, :destroy ]
+  before_filter :has_permission?, :only => [ :create, :destroy ]
   before_filter :find_polymorphic_object
   
   def index

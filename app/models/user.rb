@@ -37,9 +37,9 @@ class User < ActiveRecord::Base
     u = find_by_login(login) # need to get the salt
     u && u.authenticated?(password) ? u : nil
   end
-
-  protected
     
-
+  def is_admin?
+    true if self.id == 1
+  end
 
 end
