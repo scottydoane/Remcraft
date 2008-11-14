@@ -15,6 +15,7 @@
     <% for product in @category.products -%>
     <div class='placement' id='list_<%= Placement.find_by_product_id_and_category_id(product, @category).id -%>'>
       <div class='name'>
+        <h2><%= product.product_code %></h2>
         <%= product.name %><br />
         <%= image_tag(product.images.first.public_filename("small")) rescue "No Image" -%>
       </div>

@@ -16,7 +16,7 @@
             <%= image_tag product.images.first.public_filename(:small) rescue nil %>
           </div>
           <h2 style='margin: 0; margin-top: 8px'><%= product.product_code %></h2>
-          <b><%=h product.name %></b>
+          <b><%= product.name %></b>
         </a>
       </td>
     <%= i.modulo(3) == 0 ? "</tr><tr>" : "" -%>
