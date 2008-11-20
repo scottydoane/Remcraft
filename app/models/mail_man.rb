@@ -26,7 +26,7 @@ class MailMan < ActionMailer::Base
   
   def comment(email_params, sent_at = Time.now)
       @subject = "[Remcraft Website Contact] #{email_params[:subject]}"
-      @recipients  = "scotty@geekbehindthecurtain.com, brian@stripecreative.com"
+      @recipients  = "customerservice@remcraft.com"
       @from  = email_params[:address]
       @sent_on = sent_at
 
