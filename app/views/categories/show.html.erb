@@ -1,25 +1,21 @@
 <div class='category-description'>
-  <%= image_tag @category.images.first.public_filename(:small) rescue nil %>
   <h1><%= @category.title %></h1>
-  <div style="margin-left: 216px"><%= @category.description %></div>  
-  <div class="clear"></div>
+  <%= @category.description %> 
 </div>
 
-<table class='products' border='0' cellspacing='0' cellpadding='0'>
-  <tr>
-    <%- i = 0 -%>
-    <% for product in @category.products -%>
-    <%- i = i + 1 -%>
-      <td>
-        <a href='/products/<%= product.id %>' class='product'>
-          <div class='image'>
-            <%= image_tag product.images.first.public_filename(:small) rescue nil %>
-          </div>
-          <h2 style='margin: 0; margin-top: 8px'><%= product.product_code %></h2>
-          <b><%= product.name %></b>
-        </a>
-      </td>
-    <%= i.modulo(3) == 0 ? "</tr><tr>" : "" -%>
-    <% end -%>
-  <%= i.modulo(3) == 0 ? "" : "</tr>" -%>
-</table>
+<h2 class='subcategory'>Sub-Category Title</h2>
+<ul class='products'>
+  <% for product in @category.products -%>
+  <li>
+    <a href='/products/<%= product.id %>' class='product'>
+      <div class='image'>
+        <%= image_tag product.images.first.public_filename(:small) rescue nil %>
+      </div>
+      <div class='text'>
+        <p><%= product.product_code %></p>
+        <b><%= product.name %></b>
+      </div>
+    </a>
+  </li>
+  <% end -%>
+</ul>

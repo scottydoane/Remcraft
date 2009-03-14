@@ -32,8 +32,87 @@ body, html {
     #global-navigation ul li a:hover {
       text-decoration: underline; }
 
+#navigation .mirrors {
+  background: #e4dac4;
+  float: left; }
+#navigation .lighting {
+  background: #c5c7ce;
+  float: right; }
+#navigation .mirrors, #navigation .lighting {
+  width: 478px;
+  text-align: center;
+  font-size: 120%; }
+  #navigation .mirrors ul.gutter,   #navigation .lighting ul.gutter {
+    padding: 12px; }
+    #navigation .mirrors ul.gutter li,     #navigation .lighting ul.gutter li {
+      display: inline;
+      border-right: solid 1px #000;
+      padding-right: 1.2em;
+      padding-left: 1.2em; }
+      #navigation .mirrors ul.gutter li a,       #navigation .lighting ul.gutter li a {
+        color: #000;
+        text-decoration: none; }
+      #navigation .mirrors ul.gutter li a:hover,       #navigation .lighting ul.gutter li a:hover {
+        text-decoration: underline; }
+    #navigation .mirrors ul.gutter li.last,     #navigation .lighting ul.gutter li.last {
+      border-right: none; }
+
+#breadcrumb {
+  clear: both;
+  margin: 0 18px 36px 18px;
+  padding: 18px 0 6px 0;
+  border-bottom: solid 2px #000; }
+  #breadcrumb a {
+    text-decoration: none;
+    color: #333; }
+  #breadcrumb a.current {
+    font-weight: bold; }
+  #breadcrumb a:hover {
+    text-decoration: underline; }
+
 #content {
   clear: both; }
+
+.category-description {
+  background: #f1ece2;
+  border-top: solid 1px #000;
+  border-bottom: solid 1px #000;
+  padding: 24px 36px; }
+  .category-description h1 {
+    font-size: 250%;
+    margin-bottom: .5em; }
+  .category-description p {
+    font-size: 120%;
+    line-height: 1.25em;
+    margin-bottom: .5em; }
+
+h2.subcategory {
+  padding: 24px 34px 0;
+  font-size: 180%;
+  font-weight: bold; }
+
+ul.products {
+  padding: 8px 34px; }
+  ul.products li:hover {
+    background: transparent url('../images/backcatdisplay.gif') no-repeat; }
+  ul.products li {
+    border: solid 1px #e4e4e4;
+    width: 195px;
+    height: 245px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 8px;
+    position: relative; }
+    ul.products li a {
+      color: #000;
+      text-decoration: none;
+      font-size: 130%; }
+    ul.products li .text {
+      width: 194px;
+      position: absolute;
+      bottom: 12px; }
 
 #footer {
   clear: both;

@@ -24,27 +24,19 @@
 	<%= render :partial => 'shared/header' %>  
 	
   <div id="wrap">
-		<div id="special">
-		  <%= flash[:notice] %>
-		</div>  
-  	
-		<ul id='nav'>
-      <li><%= link_to 'Home', root_url %></li>
-      <!--
-      <% for root in Category.roots %>
-      <li><%= link_to root.name, category_url(root) %></li>
+  	    
+    <%= render :partial => 'shared/navigation' %>
+    <%= tag("div", flash[:notice], :id => 'special') if flash[:notice] %>
+    
+    <div id="breadcrumb">
+      <% if @breadcrumbs %>
+        <% @breadcrumbs[0..-2].each do |txt, path| %>
+          <%= link_to(h(txt), path) %> /
+        <% end %>
+        <b><%= h(@breadcrumbs.last.first) %></b>
       <% end %>
-      -->
-      <li><a href='/categories/6'>BACI Mirrors</a></li>
-      <li><a href='/categories/11'>BACI LED Mirrors</a></li>
-      <li><a href='/categories/7'>ECHO Mirrors</a></li>
-      <li><a href='/categories/10'>PICCOLO Mirrors</a></li>
-      <li><a href='http://www.remcraft.com/g-9/index.html'>BACI Lighting</a></li>
-      <li><a href='http://www.remcraft.com/bullets/index.html'>Spot/Retro Lighting</a></li>
-      <li><%= link_to 'About Remcraft', static_url(:permalink => 'about') %></li>
-      <li class='last'><%= link_to 'Contact Us', :controller => 'contacts', :action => 'new' %></li>
-    </ul>
-
+    </div>
+    
     <div id="content<%= '-onecolumn' if (@page.sidebar.empty? rescue true) %>">
       <div class="gutter">
         <%= yield  %>

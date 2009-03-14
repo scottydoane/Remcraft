@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_filter :has_permission?, :except => [ :show ]
+  # before_filter :has_permission?, :except => [ :show ]
   
   def index
     @categories = Category.find(:all)
@@ -14,6 +14,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.xml
   def show
     @category = Category.find(params[:id])
+    set_breadcrumb_for @category  
         
     respond_to do |format|
       format.html { render :layout => "public" } # show.html.erb
@@ -87,5 +88,11 @@ class CategoriesController < ApplicationController
     Category.update_positions(params)
     render :nothing => true
   end
-
+  
+  private
+  def set_breadcrumb_for cat
+    set_breadcrumb_for cat.parent if cat.parent
+    add_breadcrumb cat.name, "category_path(#{cat.id})"
+  end
+  
 end

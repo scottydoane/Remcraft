@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :has_permission?, :except => [ :show ]
+  # before_filter :has_permission?, :except => [ :show ]
   
   def index
     @products = Product.find(:all)
@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
+    set_breadcrumb_for @product  
         
     respond_to do |format|
       format.html { render :layout => "public" } # show.html.erb
@@ -70,6 +71,12 @@ class ProductsController < ApplicationController
       format.html { redirect_to(products_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  def set_breadcrumb_for prod
+    # set_breadcrumb_for prod.parent if prod.parent
+    add_breadcrumb prod.name, "product_path(#{prod.id})"
   end
   
 end
