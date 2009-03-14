@@ -31,10 +31,11 @@
         #navigation
           .gutter
             = render :partial => 'shared/admin_navigation' if current_user
+        
         #content
           .gutter
             = content_tag(:div, yield(:subnavigation), :class => 'subnavigation') if yield(:subnavigation)
             = yield
-
+            
         #footer
           .gutter= "#{ENV['RAILS_ENV'].titleize} Build"

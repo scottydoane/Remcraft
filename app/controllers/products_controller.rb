@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # before_filter :has_permission?, :except => [ :show ]
   
   def index
-    @products = Product.find(:all)
+    @products = Product.paginate :page => params[:page], :order => :product_code
 
     respond_to do |format|
       format.html # index.html.erb
@@ -75,8 +75,8 @@ class ProductsController < ApplicationController
   
   private
   def set_breadcrumb_for prod
-    # set_breadcrumb_for prod.parent if prod.parent
-    add_breadcrumb prod.name, "product_path(#{prod.id})"
+    add_breadcrumb prod.categories.first.name, "category_path(#{prod.categories.first.id})"
+    add_breadcrumb "#{prod.product_code} - #{prod.name}", "product_path(#{prod.id})"
   end
   
 end

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   # before_filter :has_permission?, :except => [ :show ]
+  add_breadcrumb "Categories", "categories_path"
   
   def index
     @categories = Category.find(:all)

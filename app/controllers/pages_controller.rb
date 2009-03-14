@@ -21,7 +21,8 @@ class PagesController < ApplicationController
     else
       @page = Page.find(params[:id])
     end
-
+    set_breadcrumb_for @page  
+    
     respond_to do |format|
       if params[:permalink] == 'homepage'
         format.html { render :layout => 'homepage' }
@@ -93,4 +94,10 @@ class PagesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+  def set_breadcrumb_for page
+    add_breadcrumb page.name, "page_path(#{page.id})"
+  end
+  
 end

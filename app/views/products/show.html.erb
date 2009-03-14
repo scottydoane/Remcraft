@@ -1,21 +1,10 @@
 <div class='product'>
   <span class='main-image'>
     <%= image_tag @product.images.first.public_filename(:medium) rescue nil %>
-  <ul class='links'>
-    <li><%= link_to image_tag('view-larger.gif'),  @product.images.first.public_filename(:large), :rel => 'lightbox' rescue nil %></li>
-    <%- if @product.assets.first -%>
-    <li><%= link_to image_tag('download-data-sheet.gif'), @product.assets.first.public_filename %></li>
-    <%- end -%>
-    <li><%= link_to_function image_tag('print.gif'), "print()" %></li>
-  </ul>
   </span>
 
   <div class='description'>
-    <span class='breadcrumb'>
-      <%= link_to 'Home', root_url %> |
-      <%= link_to @product.categories.first.name, category_url(@product.categories.first) rescue nil %> |
-      <%= @product.product_code %>
-    </span>
+
     <h1><%=h @product.product_code %> <%=h @product.name %></h1>
     <p><%=h @product.description %></p>
 

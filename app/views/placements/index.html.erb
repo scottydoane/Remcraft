@@ -10,20 +10,17 @@
 <% end -%>
 
 <% if @category -%>
-<h1>Order Products Within a Category</h1>
-  <div id="list">
+<h1>Set Display Order of Products Within a Category</h1>
+  <ul id="list">
     <% for product in @category.products -%>
-    <div class='placement' id='list_<%= Placement.find_by_product_id_and_category_id(product, @category).id -%>'>
-      <div class='name'>
-        <h2><%= product.product_code %></h2>
-        <%= product.name %><br />
-        <%= image_tag(product.images.first.public_filename("small")) rescue "No Image" -%>
-      </div>
-    </div>
+    <li class='placement' id='list_<%= Placement.find_by_product_id_and_category_id(product, @category).id -%>'>
+      <%= image_tag(product.images.first.public_filename("mini")) rescue "No Image" -%>
+      <div class="text"><%= product.product_code %> - <%= product.name %></div>
+    </li>
     <% end -%>
-  </div>
+  </ul>
   <%= sortable_element("list", 
       :url => { :controller => 'placements', :action => 'reorder' }, 
-      :tag => 'div') -%>
+      :tag => 'li') -%>
 
 <% end %>
