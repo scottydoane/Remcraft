@@ -5,7 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Remcraft Lighting Products, Inc.</title>
-
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css"> 
+  
   <%= stylesheet_link_tag 'public', :media => 'all' %>
   <%= stylesheet_link_tag 'lightbox' %>
   <!--[if IE 6]> 
@@ -20,17 +21,9 @@
   
 </head>
 <body>
-  <div class="wrap">
-		<div id="header">
-		  <div class='gutter'>
-        <object
-          type="application/x-shockwave-flash" data="/flash/banner_conv.swf" 
-          width="425" height="82">
-        <param name="movie" value="/flash/banner_conv.swf" />
-        </object>  		    
-		  </div>
-		</div>
-	</div>
+	<%= render :partial => 'shared/header' %>  
+	
+  <div id="wrap">
 		<div id="special">
 		  <%= flash[:notice] %>
 		</div>  
@@ -42,16 +35,16 @@
       <li><%= link_to root.name, category_url(root) %></li>
       <% end %>
       -->
-      <li><a href='http://www.remcraft.com/categories/6'>BACI Mirrors</a></li>
-      <li><a href='http://www.remcraft.com/categories/11'>BACI LED Mirrors</a></li>
-      <li><a href='http://www.remcraft.com/categories/7'>ECHO Mirrors</a></li>
-      <li><a href='http://www.remcraft.com/categories/10'>PICCOLO Mirrors</a></li>
+      <li><a href='/categories/6'>BACI Mirrors</a></li>
+      <li><a href='/categories/11'>BACI LED Mirrors</a></li>
+      <li><a href='/categories/7'>ECHO Mirrors</a></li>
+      <li><a href='/categories/10'>PICCOLO Mirrors</a></li>
       <li><a href='http://www.remcraft.com/g-9/index.html'>BACI Lighting</a></li>
       <li><a href='http://www.remcraft.com/bullets/index.html'>Spot/Retro Lighting</a></li>
       <li><%= link_to 'About Remcraft', static_url(:permalink => 'about') %></li>
       <li class='last'><%= link_to 'Contact Us', :controller => 'contacts', :action => 'new' %></li>
     </ul>
-<div class="wrap">
+
     <div id="content<%= '-onecolumn' if (@page.sidebar.empty? rescue true) %>">
       <div class="gutter">
         <%= yield  %>
@@ -66,11 +59,7 @@
   	</div>
     <% end %>
     
-		<div id="footer">
-		  <div class='gutter'>
-        <%= render :partial => 'shared/footer' %>  
-		  </div>
-		</div>	
+    <%= render :partial => 'shared/footer' %>  
   </div> <!-- End #wrap -->
 
 </body>

@@ -23,7 +23,11 @@ class PagesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render :layout => 'public' }
+      if params[:permalink] == 'homepage'
+        format.html { render :layout => 'homepage' }
+      else
+        format.html { render :layout => 'public' }
+      end
       format.xml  { render :xml => @page }
     end
   end

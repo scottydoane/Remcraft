@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Remcraft Lighting Products, Inc.</title>
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css"> 
+  
+  <%= stylesheet_link_tag 'public', :media => 'all' %>
+  <%= stylesheet_link_tag 'homepage', :media => 'all' %>
+  <%= stylesheet_link_tag 'lightbox' %>
+  <!--[if IE 6]> 
+    <%= stylesheet_link_tag 'ie6' %>
+  <![endif]-->
+  <!--[if IE 7]> 
+    <%= stylesheet_link_tag 'ie7' %>
+  <![endif]-->
+  
+  <%= javascript_include_tag :all, :cache => true %>
+  <%= yield(:head) %>
+  
+</head>
+<body>
+	<%= render :partial => 'shared/header' %>  
+  
+  <div id="wrap">
+    <div id="navigation">
+      <div class="mirrors">
+        <ul class='gutter'>
+          <li><a href="#">BACI Mirrors</a></li>
+          <li><a href="#">ECHO Mirrors</a></li>
+          <li class='last'><a href="#">PICCOLO Mirrors</a></li>
+        </ul>
+      </div>
+
+      <div class="lighting">
+        <ul class='gutter'>
+          <li><a href="#">BACI Decorative Lighting</a></li>
+          <li class='last'><a href="#">Spot/Retro Lighting</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div id="content">
+      <div class="gutter">
+        <%= yield  %>
+      </div>
+  	</div>
+    
+    <div id="call-to-action">
+      <div class='mirrors'>
+        <div class='gutter'>
+          <h2>Mirrors</h2>
+          <ul>
+            <li><a href='#' class='hover'>Luxury</a></li>
+            <li><a href='#'>Affordable</a></li>
+            <li><a href='#'>Eurostyle</a></li>
+          </ul>
+          <span class='blackblock'></span>
+          <div id='mirror-image'><%= image_tag 'demo-mirror.jpg' %></div>
+        </div>
+      </div>
+      <div class='lighting'>
+        <div class='gutter'>
+          <h2>Lighting</h2>
+          <ul>
+            <li><a href='#' class='hover'>Decorative</a></li>
+            <li><a href='#'>Spot Lights</a></li>
+            <li><a href='#'>RETRO<sup>®</sup> Style</a></li>
+          </ul>
+          <span class='blackblock'></span>
+          <div id='lighting-image'><%= image_tag 'demo-lighting.jpg' %></div>
+        </div>
+      </div>
+
+    </div>
+    <%= render :partial => 'shared/footer' %>  
+
+  </div> <!-- End #wrap -->
+
+</body>
+</html>
+
