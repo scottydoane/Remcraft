@@ -8,7 +8,10 @@
 
 <% for page in @pages %>
   <tr>
-    <td><%=h page.name %></td>
+    <td>
+      <%=h page.name %>
+      <span class='updated'>(Last updated: <%= page.updated_at.strftime("%B %d, %Y") %>)</span>
+    </td>
     <td class='actions'>
       <%= link_to 'Edit', edit_page_path(page) %> |
       <%= link_to 'Preview', page %> |

@@ -38,12 +38,12 @@
     <td>
       <ul>
         <% for c in option.customizations -%>
-        <li><%= c.name %> (<%= c.modifier %>)</li>
+        <li><%= c.name %> <%= c.modifier %> <%= c.skumod %></li>
         <% end  -%>
       </ul>
     </td>
     <td class='actions'>
-      <%= link_to 'Edit', edit_category_option_url(@category, option) %> 
+      <%= link_to 'Edit', edit_category_option_url(@category, option) %> |
       <%= link_to 'Delete', option, :confirm => 'Are you sure?', :method => :delete %>
     </td>
   </tr>

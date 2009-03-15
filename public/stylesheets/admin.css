@@ -91,17 +91,17 @@ label.checkbox {
           background: #BBE7BB; }
   #wrap #content {
     clear: both; }
-    #wrap #content .subnavigation {
-      text-align: center; }
-      #wrap #content .subnavigation ul {
-        padding: 0.33em; }
-        #wrap #content .subnavigation ul li {
-          display: inline; }
-          #wrap #content .subnavigation ul li a {
-            padding: 0.33em 1.33em;
-            text-decoration: none; }
-          #wrap #content .subnavigation ul li a:hover {
-            background: #eee; }
+    #wrap #content .subnavigation ul {
+      background: #aad6aa;
+      padding: 0.1em; }
+      #wrap #content .subnavigation ul li {
+        display: inline; }
+        #wrap #content .subnavigation ul li a {
+          color: #333;
+          padding: 0.33em 1.33em;
+          text-decoration: none; }
+        #wrap #content .subnavigation ul li a:hover {
+          background: #EAFAEA; }
     #wrap #content .sortable-categories ul {
       display: block;
       padding-left: 1em;
@@ -113,6 +113,10 @@ label.checkbox {
       font-size: 90%; }
       #wrap #content .pagination .disabled {
         display: none; }
+    #wrap #content .updated {
+      font-size: 80%;
+      color: #999;
+      font-style: oblique; }
   #wrap #footer {
     text-align: center;
     font-size: 0.83em;

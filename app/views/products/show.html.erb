@@ -1,7 +1,15 @@
 <div class='product'>
-  <span class='main-image'>
-    <%= image_tag @product.images.first.public_filename(:medium) rescue nil %>
-  </span>
+  <div class='variant'>
+    <ul class='tabs'>
+      <li><a href='#' class='active'>Variant</a></li>
+      <li><a href='#'>Variant</a></li>
+      <li><a href='#'>Variant</a></li>
+      <li><a href='#'>Variant</a></li>
+    </ul>
+    <div class='gutter'>
+      <%= image_tag @product.images.first.public_filename(:medium) rescue nil %>
+    </div>
+  </div>
 
   <div class='description'>
 

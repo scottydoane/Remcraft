@@ -1,8 +1,9 @@
 <div class="customization">
   <% fields_for "option[customization_attributes][]", customization do |f| %>
     <p>
-      Customization: <%= f.text_field :name, :index => nil %>
-      Price Modifier: <%= f.text_field :modifier, :index => nil %>
+      Customization: <%= f.text_field :name, :index => nil, :size => 30 %>
+      Price Modifier: <%= f.text_field :modifier, :index => nil, :size => 10 %>
+      SKU Modifier: <%= f.text_field :skumod, :index => nil, :size => 5 %>
       <% if customization.new_record? %>
         <%= link_to_function "remove", "$(this).up('.customization').remove()" %>
       <% else %>
