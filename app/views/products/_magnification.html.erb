@@ -1,0 +1,12 @@
+<div class='magnification'>
+  <% magnification_levels = %w(0x 3x 5x 7x) %>
+  <% magnification.map! { |x| x.name.slice(0,2) } %>
+  <h2>Magnification Options</h2>
+  <ul>
+    <% for level in magnification_levels -%>
+    <li class='<%= "on" if magnification.include?(level) %>'>
+      <%= level %>
+    </li>
+    <% end -%>
+  </ul>
+</div>

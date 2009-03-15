@@ -35,6 +35,7 @@
         <% end %>
         <b><%= h(@breadcrumbs.last.first) %></b>
       <% end %>
+      <span class='print'><%= link_to "Printer Friendly Page" %></span>
     </div>
     
     <div id="content<%= '-onecolumn' if (@page.sidebar.empty? rescue true) %>">

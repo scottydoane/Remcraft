@@ -11,11 +11,13 @@ class Product < ActiveRecord::Base
   
   has_many :qualities
   has_many :customizations, :through => :qualities
-   
+  
+  has_many :variants, :foreign_key => "parent_id"
+
   validates_presence_of :sku, :on => :create, :message => "can't be blank"
   validates_presence_of :name, :on => :create, :message => "can't be blank"
 end
 
 class Variant < Product
-
+  belongs_to :product, :foreign_key => "parent_id"
 end

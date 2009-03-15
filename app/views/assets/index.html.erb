@@ -1,6 +1,5 @@
 <% content_for :subnavigation do %>
-  <%= render :partial => 'products/subnavigation' if @object.is_a? Product %>
-  <%= render :partial => 'categories/subnavigation' if @object.is_a? Category %>
+  <%= render :partial => "#{@object.class.to_s.downcase.pluralize}/subnavigation" rescue nil -%>
 <% end -%>
 
 <h1><%= @object.class %> Assets</h1>
@@ -14,7 +13,6 @@
     <%= f.submit "Add Asset", :class => 'submit' %>
   </p>
 <% end -%>
-
 
 <h2>Existing <%= @object.class %> Assets</h2>
 <table>

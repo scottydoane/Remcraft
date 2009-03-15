@@ -69,6 +69,11 @@ body, html {
     font-weight: bold; }
   #breadcrumb a:hover {
     text-decoration: underline; }
+  #breadcrumb .print {
+    position: absolute;
+    right: 46px;
+    background: transparent url('../images/print.gif') 0 50% no-repeat;
+    padding-left: 12px; }
 
 #content {
   clear: both; }
@@ -89,7 +94,8 @@ body, html {
 h2.subcategory {
   padding: 24px 34px 0;
   font-size: 180%;
-  font-weight: bold; }
+  font-weight: bold;
+  clear: both; }
 
 ul.products {
   padding: 8px 34px; }
@@ -134,22 +140,37 @@ ul.products {
     text-transform: uppercase;
     border-top: solid 1px #000;
     padding-top: 2px; }
-  .product .variant {
+  .product .variants {
     background: #fff;
     border: solid 1px #000;
     width: 388px;
     position: absolute;
     top: 12px;
-    left: 36px; }
-    .product .variant .gutter {
+    left: 36px;
+    text-align: center; }
+    .product .variants .gutter {
       padding: 12px;
       text-align: center; }
-    .product .variant .tabs {
+    .product .variants h2 {
+      border-top: none;
+      margin-top: 12px;
+      font-size: 150%; }
+    .product .variants .enlarge {
+      font-weight: bold;
+      font-size: 110%;
+      text-transform: uppercase;
+      background: transparent url('../images/plus.gif') 0 50% no-repeat;
+      display: inline-block;
+      padding-left: 18px; }
+      .product .variants .enlarge a {
+        color: #000;
+        text-decoration: none; }
+    .product .variants .tabs {
       position: absolute;
       top: -28px; }
-      .product .variant .tabs li {
+      .product .variants .tabs li {
         display: inline; }
-        .product .variant .tabs li a {
+        .product .variants .tabs li a {
           display: block;
           float: left;
           background: #ebe1ce;
@@ -160,9 +181,9 @@ ul.products {
           font-weight: bold;
           text-decoration: none;
           color: #000; }
-        .product .variant .tabs li a:hover {
+        .product .variants .tabs li a:hover {
           text-decoration: underline; }
-        .product .variant .tabs li a.active {
+        .product .variants .tabs li a.active {
           background: #fff;
           border-bottom: none;
           padding-bottom: 7px; }
@@ -171,6 +192,19 @@ ul.products {
     .product .description ul {
       margin: 6px 0;
       font-size: 120%; }
+  .product .magnification ul {
+    margin-top: 8px; }
+    .product .magnification ul li {
+      background: transparent url('../images/magnification_off.gif') top center no-repeat;
+      display: inline-block;
+      height: 96px;
+      width: 46px;
+      padding: 8px;
+      padding-top: 12px;
+      font-size: 200%;
+      color: #fff; }
+    .product .magnification ul li.on {
+      background: transparent url('../images/magnification_on.gif') top center no-repeat; }
 
 #footer {
   clear: both;

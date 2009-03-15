@@ -1,9 +1,16 @@
 <% content_for :subnavigation do %>
-<%= render :partial => 'products/subnavigation' if @product %> 
+  <%= render :partial => "#{@product.class.to_s.downcase.pluralize}/subnavigation" rescue nil -%>
 <% end -%>
 
-<h1>Select Category Customizations Options to Apply to a Product</h1>
-<% for category in @product.categories -%>
+<h1>Select Category Customizations Options to Apply to a <%= @product.class %></h1>
+<% 
+  # This is kinda sketchy... fix it at some point
+  if @product.is_a? Variant 
+    category = @product.product.categories.first.parent
+  else
+    category = @product.categories.first.parent
+  end
+%>
 <div>
   <h2><%= category.name %></h2>
   <% for option in category.options %>
@@ -26,4 +33,3 @@
     </ul>
   <% end %>  
 </div>
-<% end -%>

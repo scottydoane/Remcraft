@@ -20,9 +20,10 @@ class PlacementsController < ApplicationController
   end
   
   def reorder
-    params[:list].each_with_index do |id, position|
-      Placement.update(id, :position => position + 1)
+    params[:list].each_with_index do |id, index|
+      Placement.update_all(['position=?', index+1], ['id=?', id])
     end
+        
     render :update do |page|
       page.visual_effect :highlight, "list"
     end    

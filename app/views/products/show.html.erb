@@ -1,21 +1,55 @@
+<% content_for :head do %>
+  <script type="text/javascript" charset="utf-8">
+    function change_tab(id) {      
+      // Hide existing infomation displays
+      $('variant_tabs').select('a').each(function(x) {
+        x.removeClassName('active');
+      });
+      $$('.variant').each(function(x) {
+        x.hide();
+      });
+      
+      // Unhide the one we want
+      $('variant_'+id).show();
+      $('tab_'+id).addClassName('active');
+    }
+  </script>
+<% end %>
+
 <div class='product'>
-  <div class='variant'>
-    <ul class='tabs'>
-      <li><a href='#' class='active'>Variant</a></li>
-      <li><a href='#'>Variant</a></li>
-      <li><a href='#'>Variant</a></li>
-      <li><a href='#'>Variant</a></li>
+  <div class='variants'>
+    <ul id='variant_tabs' class='tabs'>
+      <%- for variant in @product.variants %>
+      <li>
+        <%= link_to_function variant.name, "change_tab('#{variant.id}')", :class => ('active' if variant == @product.variants.first), :id => "tab_#{variant.id}" %>
+      </li>
+      <%- end %>
     </ul>
-    <div class='gutter'>
-      <%= image_tag @product.images.first.public_filename(:medium) rescue nil %>
-    </div>
+    
+    <%- for variant in @product.variants %>
+      <% div_for variant, :style => ('display: none' unless variant == @product.variants.first) do %>
+        <%= image_tag variant.images.first.public_filename(:medium) rescue nil %>
+        <span class='enlarge'>
+          <%= link_to "View Larger Image", (variant.images.first.public_filename rescue nil), :rel => 'lightbox'-%>
+        </span>
+        
+        <% for specification in variant.specifications %>
+          <h2><%= specification.name %></h2>
+          <p><%= RedCloth.new(specification.description).to_html %></p>
+        <% end %>
+        
+        <% variant.customizations.group_by(&:option).each do |option, customizations| %>
+        <%= render :partial => "magnification", :object => customizations if option.name == "Magnification" %>
+        
+        <% end %>  
+        
+      <% end %>
+    <%- end %>
   </div>
 
   <div class='description'>
-
     <h1><%=h @product.product_code %> <%=h @product.name %></h1>
     <p><%=h @product.description %></p>
-
 
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
       <h2><%= option.name %></h2>
@@ -30,6 +64,5 @@
       <h2><%= specification.name %></h2>
       <p><%= RedCloth.new(specification.description).to_html %></p>
     <% end %>
-
   </div>
 </div>

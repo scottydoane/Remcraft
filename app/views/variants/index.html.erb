@@ -1,0 +1,36 @@
+<% content_for :subnavigation do %>
+<%= render :partial => 'products/subnavigation' %>
+<% end -%>
+
+<h1>Product Variants</h1>
+
+<p>Variants make the tabs work on the product details page. Each variant is represented by one of those tabs. Things like images and PDFs can be attached to variants to make them display on the website. You can also assigns spcific specifications and options to variants as well.</p>
+<p>Informated entered here appears only in the "white box" area of the product details.</p>
+
+<span class='add-new-link'><%= link_to "New variant", new_product_variant_path %></span>
+
+<table>
+  <tr>
+    <th>Variant</th>
+    <th class='published'>Details</th>
+    <th class='actions'>Actions</th>
+  </tr>
+
+<% for variant in @product.variants %>
+  <tr>
+    <td>
+      <b><%=h variant.name %></b>
+    </td>
+    <td style='text-align: center;'>
+      <%= link_to 'Images', product_images_path(variant) %> |
+      <%= link_to 'Assets', product_assets_path(variant) %> |
+      <%= link_to 'Specifications', product_specifications_path(variant) %> |
+      <%= link_to 'Options', product_qualities_path(variant) %>
+    </td>
+    <td class='actions'>
+      <%= link_to 'Edit', edit_product_variant_path(@product, variant) %> |
+      <%= link_to 'Delete', [@product, variant], :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>

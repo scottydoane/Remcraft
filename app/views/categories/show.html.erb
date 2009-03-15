@@ -3,19 +3,12 @@
   <%= @category.description %> 
 </div>
 
-<h2 class='subcategory'>Sub-Category Title</h2>
-<ul class='products'>
-  <% for product in @category.products -%>
-  <li>
-    <a href='/products/<%= product.id %>' class='product'>
-      <div class='image'>
-        <%= image_tag product.images.first.public_filename(:small) rescue nil %>
-      </div>
-      <div class='text'>
-        <p><%= product.product_code %></p>
-        <b><%= product.name %></b>
-      </div>
-    </a>
-  </li>
-  <% end -%>
-</ul>
+
+<%= 
+  # Migration holder, allows for display of master category related items
+  # Shoudl be removed after transition.  
+  render :partial => @category %>
+
+<% for category in @category.children.delete_if { |x| x.products.empty? } -%>
+<%= render :partial => category %>
+<%- end -%>
