@@ -18,7 +18,7 @@ set :password, "pr0d1G10u$"
 # set :deploy_to, "/home/remcraft/rails"
 set :deploy_to, "/var/www/rails/#{application}"
 
-# set :rails_env, "production"
+set :rails_env, "staging"
 # set :use_sudo, false
 
 # If you aren't using Subversion to manage your source code, specify
@@ -26,7 +26,7 @@ set :deploy_to, "/var/www/rails/#{application}"
 # set :scm, :subversion
 set :scm, :git
 set :scm_user, 'scotty'
-# set :git_enable_submodules, true
+set :git_enable_submodules, true
 
 set :port, 7822
 
@@ -36,7 +36,7 @@ role :db,  "sagittarius.geekbehindthecurtain.com", :primary => true
 
 namespace :deploy do  
   task :restart do
-    run '/etc/init.d/lighttpd restart'
+    sudo '/etc/init.d/lighttpd restart'
   end
   
   task :after_symlink do

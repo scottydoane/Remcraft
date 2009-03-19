@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   # before_filter :has_permission?, :except => [ :show ]
   
   def index
-    @products = Product.paginate :page => params[:page], :order => :product_code
+    @products = Product.paginate :page => params[:page], :include => :images, :order => :product_code
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   end
   
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id], :include => [ :images, :specifications ])
     set_breadcrumb_for @product  
         
     respond_to do |format|

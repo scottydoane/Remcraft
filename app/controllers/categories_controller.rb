@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.xml
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:id], :include => [{ :products  => :images }])
     set_breadcrumb_for @category  
         
     respond_to do |format|
