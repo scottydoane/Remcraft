@@ -28,7 +28,7 @@
     
     <%- for variant in @product.variants %>
       <% div_for variant, :style => ('display: none' unless variant == @product.variants.first) do %>
-        <%= image_tag variant.images.first.public_filename(:medium) rescue nil %>
+        <%= image_tag variant.images.first.public_filename(:medium), :width => '300' rescue nil %>
         <span class='enlarge'>
           <%= link_to "View Larger Image", (variant.images.first.public_filename rescue nil), :rel => 'lightbox'-%>
         </span>
