@@ -11,7 +11,7 @@
 <% for product in @products %>
   <tr>
     <td class='image'>
-      <%= image_tag product.images.first.public_filename(:mini) rescue nil %>
+      <%= image_tag product.variants.first.images.first.public_filename(:mini) rescue nil %>
     </td>
     <td>
       <b><%=h product.product_code %> - <%= product.name %></b><br />

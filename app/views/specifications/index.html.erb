@@ -19,6 +19,8 @@
 <% end -%>
 
 <h2>Existing Product Specifications</h2>
+<%= variant_identifier(@object) if @object.is_a?(Variant) -%>
+
 <table border="0" cellspacing="5" cellpadding="5">
   <tr>
     <th>Name</th>

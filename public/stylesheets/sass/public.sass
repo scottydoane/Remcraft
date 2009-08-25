@@ -1,3 +1,6 @@
+.clear 
+  :clear both
+  
 body, html
   :background #000000
   :font-family arial, helvetica, verdana, sans-serif
@@ -74,11 +77,14 @@ body, html
     :text-decoration underline
   .print
     :position absolute
-    :right 46px
+    :right 72px
     :background transparent url('../images/print.gif') 0 50% no-repeat
     :padding-left 12px
 #content
   :clear both
+
+#content-onecolumn
+  :position relative
 
 .category-description
   :background #f1ece2
@@ -147,9 +153,9 @@ ul.products
     :background #fff
     :border solid 1px #000
     :width 388px
-    :position absolute
-    :top 12px
-    :left 36px
+    :position relative
+    :float left
+    :margin-top -12px
     :text-align center
     .gutter
       :padding 12px

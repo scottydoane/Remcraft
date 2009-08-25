@@ -1,3 +1,6 @@
+.clear {
+  clear: both; }
+
 body, html {
   background: #000000;
   font-family: arial, helvetica, verdana, sans-serif;
@@ -42,19 +45,19 @@ body, html {
   width: 478px;
   text-align: center;
   font-size: 120%; }
-  #navigation .mirrors ul.gutter,   #navigation .lighting ul.gutter {
+  #navigation .mirrors ul.gutter, #navigation .lighting ul.gutter {
     padding: 12px; }
-    #navigation .mirrors ul.gutter li,     #navigation .lighting ul.gutter li {
+    #navigation .mirrors ul.gutter li, #navigation .lighting ul.gutter li {
       display: inline;
       border-right: solid 1px #000;
       padding-right: 1.2em;
       padding-left: 1.2em; }
-      #navigation .mirrors ul.gutter li a,       #navigation .lighting ul.gutter li a {
+      #navigation .mirrors ul.gutter li a, #navigation .lighting ul.gutter li a {
         color: #000;
         text-decoration: none; }
-      #navigation .mirrors ul.gutter li a:hover,       #navigation .lighting ul.gutter li a:hover {
+      #navigation .mirrors ul.gutter li a:hover, #navigation .lighting ul.gutter li a:hover {
         text-decoration: underline; }
-    #navigation .mirrors ul.gutter li.last,     #navigation .lighting ul.gutter li.last {
+    #navigation .mirrors ul.gutter li.last, #navigation .lighting ul.gutter li.last {
       border-right: none; }
 
 #breadcrumb {
@@ -71,12 +74,15 @@ body, html {
     text-decoration: underline; }
   #breadcrumb .print {
     position: absolute;
-    right: 46px;
+    right: 72px;
     background: transparent url('../images/print.gif') 0 50% no-repeat;
     padding-left: 12px; }
 
 #content {
   clear: both; }
+
+#content-onecolumn {
+  position: relative; }
 
 .category-description {
   background: #f1ece2;
@@ -144,9 +150,9 @@ ul.products {
     background: #fff;
     border: solid 1px #000;
     width: 388px;
-    position: absolute;
-    top: 12px;
-    left: 36px;
+    position: relative;
+    float: left;
+    margin-top: -12px;
     text-align: center; }
     .product .variants .gutter {
       padding: 12px;
