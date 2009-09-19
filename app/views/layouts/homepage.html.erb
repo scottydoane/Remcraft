@@ -26,14 +26,8 @@
   
   <div id="wrap">
     
-    <%= render :partial => 'shared/navigation' %>
-    
-    <div id="content">
-      <div class="gutter">
-        <%= yield  %>
-      </div>
-  	</div>
-    
+    <% render :partial => 'shared/navigation' %>
+
     <div id="call-to-action">
       <div class='mirrors'>
         <div class='gutter'>
@@ -59,8 +53,14 @@
           <div id='lighting-image'><%= image_tag 'hp-decorative.jpg' %></div>
         </div>
       </div>
-
     </div>
+
+    <div id="content">
+      <div class="gutter">
+        <%= yield  %>
+      </div>
+  	</div>
+    
     <%= render :partial => 'shared/footer' %>  
 
   </div> <!-- End #wrap -->

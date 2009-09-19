@@ -221,10 +221,28 @@ ul.products
   :clear both
   :border-top solid #000 5px
   :background #e5e5e5
+  :text-align center
   .gutter
-    :padding 16px
+    :padding .1em
     :text-align center
-    :line-height 1.5em
+    :line-height .6em
+    ul
+      :margin-left 1.6em
+      li
+        :padding 1em .6em 1em .4em
+        :float left
+        a
+          :color #646464
+          :text-decoration none
+          :border-right solid 1px #646464
+          :padding-right 1.2em
+        a:hover
+          :text-decoration underline
+      li.last
+        a
+          :border-right none
+  
     p
+      :clear both
       :margin-bottom 1em
       :color #646464

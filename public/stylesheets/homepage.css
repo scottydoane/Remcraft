@@ -25,47 +25,49 @@
     .mirrors ul.gutter li.last, .lighting ul.gutter li.last {
       border-right: none; }
 
-#call-to-action .mirrors, #call-to-action .lighting {
-  position: relative;
-  text-align: left;
-  margin-top: 1em;
+#call-to-action {
+  border-bottom: solid 1px #000;
   height: 305px; }
-  #call-to-action .mirrors .gutter, #call-to-action .lighting .gutter {
-    padding: 8px; }
-    #call-to-action .mirrors .gutter img, #call-to-action .lighting .gutter img {
-      border: solid 1px #000;
-      position: absolute;
-      top: 22px;
-      right: 24px; }
-    #call-to-action .mirrors .gutter h2, #call-to-action .lighting .gutter h2 {
-      font-family: Arial;
-      font-size: 360%;
-      margin-top: 12px;
-      width: 158px;
-      text-indent: -9999px; }
-    #call-to-action .mirrors .gutter ul li, #call-to-action .lighting .gutter ul li {
-      font-family: 'Trebuchet MS';
-      text-align: right;
-      width: 176px;
-      font-size: 170%; }
-      #call-to-action .mirrors .gutter ul li a, #call-to-action .lighting .gutter ul li a {
-        color: #000;
-        text-decoration: none;
-        padding: 20px;
-        display: block; }
-      #call-to-action .mirrors .gutter ul li a:hover, #call-to-action .mirrors .gutter ul li a.hover, #call-to-action .lighting .gutter ul li a:hover, #call-to-action .lighting .gutter ul li a.hover {
-        font-weight: bold;
-        background: url('../images/black-bar.gif') center right no-repeat; }
-#call-to-action .mirrors h2 {
-  background: transparent url('../images/mirrors.gif') center right no-repeat; }
-#call-to-action .lighting h2 {
-  background: transparent url('../images/lighting.gif') center right no-repeat; }
-#call-to-action .blackblock {
-  background: #000;
-  display: block;
-  height: 270px;
-  width: 134px;
-  position: absolute;
-  top: 16px;
-  right: 160px;
-  z-index: 0; }
+  #call-to-action .mirrors, #call-to-action .lighting {
+    position: relative;
+    text-align: left;
+    height: 305px; }
+    #call-to-action .mirrors .gutter, #call-to-action .lighting .gutter {
+      padding: 8px; }
+      #call-to-action .mirrors .gutter img, #call-to-action .lighting .gutter img {
+        border: solid 1px #000;
+        position: absolute;
+        top: 22px;
+        right: 24px; }
+      #call-to-action .mirrors .gutter h2, #call-to-action .lighting .gutter h2 {
+        font-family: Arial;
+        font-size: 360%;
+        margin-top: 12px;
+        width: 158px;
+        text-indent: -9999px; }
+      #call-to-action .mirrors .gutter ul li, #call-to-action .lighting .gutter ul li {
+        font-family: 'Trebuchet MS';
+        text-align: right;
+        width: 176px;
+        font-size: 170%; }
+        #call-to-action .mirrors .gutter ul li a, #call-to-action .lighting .gutter ul li a {
+          color: #000;
+          text-decoration: none;
+          padding: 20px;
+          display: block; }
+        #call-to-action .mirrors .gutter ul li a:hover, #call-to-action .mirrors .gutter ul li a.hover, #call-to-action .lighting .gutter ul li a:hover, #call-to-action .lighting .gutter ul li a.hover {
+          font-weight: bold;
+          background: url('../images/black-bar.gif') center right no-repeat; }
+  #call-to-action .mirrors h2 {
+    background: transparent url('../images/mirrors.gif') center right no-repeat; }
+  #call-to-action .lighting h2 {
+    background: transparent url('../images/lighting.gif') center right no-repeat; }
+  #call-to-action .blackblock {
+    background: #000;
+    display: block;
+    height: 270px;
+    width: 134px;
+    position: absolute;
+    top: 16px;
+    right: 160px;
+    z-index: 0; }
