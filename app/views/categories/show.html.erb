@@ -1,3 +1,5 @@
+<%= render :partial => 'shared/next_steps' %>
+
 <div class='category-description'>
   <h1><%= @category.title %></h1>
   <%= @category.description %> 
@@ -6,7 +8,7 @@
 
 <%= 
   # Migration holder, allows for display of master category related items
-  # Shoudl be removed after transition.  
+  # Should be removed after transition.  
   render :partial => @category %>
 
 <% for category in @category.children.delete_if { |x| x.products.empty? } -%>

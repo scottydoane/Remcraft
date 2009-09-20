@@ -16,6 +16,8 @@
   </script>
 <% end %>
 
+<%= render :partial => 'shared/next_steps' %>
+
 <div class='product'>
   <div class='variants'>
     <ul id='variant_tabs' class='tabs'>
@@ -48,16 +50,19 @@
   </div>
 
   <div class='description'>
-    <h1><%=h @product.product_code %> <%=h @product.name %></h1>
-    <p><%=h @product.description %></p>
-
+    <div class='buffered'>
+      <h1><%=h @product.product_code %> <%=h @product.name %></h1>
+      <p><%=h @product.description %></p>
+    </div>
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
-      <h2><%= option.name %></h2>
-      <ul>
-        <% for customization in customizations -%>
-        <li><%= customization.name %></li>
-        <% end -%>
-      </ul>
+      <div class='customization'>
+        <h2><%= option.name %></h2>
+        <ul>
+          <% for customization in customizations -%>
+          <li><%= customization.name %></li>
+          <% end -%>
+        </ul>
+      </div>
     <% end %>  
 
     <% for specification in @product.specifications %>
