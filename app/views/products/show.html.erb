@@ -16,6 +16,32 @@
   </script>
 <% end %>
 
+<div id="configurator" style='display: none;'>
+  <%- for variant in @product.variants %>
+    <% variant.customizations.group_by(&:option).each do |option, customizations| %>
+    <div class='configurator-variant'>
+      <p><%= variant.name %> <%= option.name %></p>
+      <ul>
+        <% for customization in customizations -%>
+        <li><%= radio_button_tag variant.name, customization.skumod %> <%= customization.name %></li>
+        <% end -%>
+      </ul>
+    </div>
+    <% end %>  
+  <% end %>  
+  
+  <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+    <div class='configurator-customization'>
+      <p><%= option.name %></p>
+      <ul>
+        <% for customization in customizations -%>
+        <li><%= radio_button_tag option.name, customization.skumod %> <%= customization.name %></li>
+        <% end -%>
+      </ul>
+    </div>
+  <% end %>  
+</div>
+
 <%= render :partial => 'shared/next_steps' %>
 
 <div class='product'>
@@ -51,8 +77,10 @@
 
   <div class='description'>
     <div class='buffered'>
-      <h1><%=h @product.product_code %> <%=h @product.name %></h1>
-      <p><%=h @product.description %></p>
+      <h1><%= @product.product_code %> <%= @product.name %></h1>
+      <p><%= @product.description %></p>
+      <p><%= link_to_function "Open Configurator", visual_effect(:toggle_blind, :configurator)  -%>
+      </p>
     </div>
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
       <div class='customization'>

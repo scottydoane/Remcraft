@@ -6,31 +6,10 @@
 
 <% 
   # This is kinda sketchy... fix it at some point
-  if @product.is_a? Variant 
-    category = @product.product.categories.first.parent
+  if @product.is_a? Variant
+    categories = @product.product.categories
   else
-    category = @product.categories.first.parent
+    categories = @product.categories
   end
 %>
-<div>
-  <h2><%= category.name %></h2>
-  <% for option in category.options %>
-    <h3><%= option.name %></h3>
-    <ul>
-      <% for customization in option.customizations %>
-      <li>
-      <%= check_box_tag "active", 1, (true if @product.customizations.include?(customization)), :id => "customization-#{customization.id}" %>
-      <%= customization.name %>
-      
-      <%= 
-        observe_field(
-          "customization-#{customization.id}",
-          :url => { :controller => 'qualities', :action => 'update', :product_id => @product, :customization_id => customization },
-          :with => 'activate'
-        ) 
-      %>
-      </li>
-      <% end %>
-    </ul>
-  <% end %>  
-</div>
+<%= render :partial => 'category', :collection => categories  %>

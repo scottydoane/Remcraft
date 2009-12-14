@@ -9,7 +9,7 @@
 <%= 
   # Migration holder, allows for display of master category related items
   # Should be removed after transition.  
-  render :partial => @category %>
+  render :partial => @category unless @category.products.empty? %>
 
 <% for category in @category.children.delete_if { |x| x.products.empty? } -%>
 <%= render :partial => category %>

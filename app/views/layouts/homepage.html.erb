@@ -19,6 +19,23 @@
   
   <%= javascript_include_tag :all, :cache => true %>
   <%= yield(:head) %>
+
+  <script type="text/javascript" charset="utf-8">
+    function change_tab(style, id) {      
+      // Hide existing infomation displays
+      $(style).select('a').each(function(x) {
+        x.removeClassName('active');
+      });
+      
+      $(style+'-image').select('img').each(function(x) {
+       x.hide();
+      });
+
+      // Unhide the one we want
+      $('image_'+id).show();
+      $('link_'+id).addClassName('active');
+    }
+  </script>
   
 </head>
 <body>
@@ -32,25 +49,33 @@
       <div class='mirrors'>
         <div class='gutter'>
           <h2>Mirrors</h2>
-          <ul>
-            <li><a href='/categories/6' class='hover'>Luxury</a></li>
-            <li><a href='/categories/7'>Affordable</a></li>
-            <li><a href='/categories/10'>Eurostyle</a></li>
+          <ul id='mirrors'>
+            <li><a id='link_1' href='/categories/6'  onmouseover="change_tab('mirrors','1')" class='active'>Luxury</a></li>
+            <li><a id='link_2' href='/categories/7'  onmouseover="change_tab('mirrors','2')">Affordable</a></li>
+            <li><a id='link_3' href='/categories/10' onmouseover="change_tab('mirrors','3')">Eurostyle</a></li>
           </ul>
           <span class='blackblock'></span>
-          <div id='mirror-image'><%= image_tag 'hp-luxury.jpg' %></div>
+          <div id='mirrors-image'>
+            <%= image_tag 'hp-affordable.jpg', :id => 'image_2' %>
+            <%= image_tag 'hp-eurostyle.jpg', :id => 'image_3' %>
+            <%= image_tag 'hp-luxury.jpg', :id => 'image_1' %>
+          </div>
         </div>
       </div>
-      <div class='lighting'>
+      <div id='lighting' class='lighting'>
         <div class='gutter'>
           <h2>Lighting</h2>
           <ul>
-            <li><a href='/categories/8' class='hover'>Decorative</a></li>
-            <li><a href='/categories/9'>Spot Lights</a></li>
-            <li><a href='/categories/9'>RETRO<sup>&reg;</sup> Style</a></li>
+            <li><a id='link_4' href='http://www.remcraft.com/g-9/index.html' onmouseover="change_tab('lighting','4')"  class='active'>Decorative</a></li>
+            <li><a id='link_5' href='http://www.remcraft.com/bullets/index.html' onmouseover="change_tab('lighting','5')" >Spot Lights</a></li>
+            <li><a id='link_6' href='http://www.remcraft.com/bullets/index.html' onmouseover="change_tab('lighting','6')" >RETRO<sup>&reg;</sup> Style</a></li>
           </ul>
           <span class='blackblock'></span>
-          <div id='lighting-image'><%= image_tag 'hp-decorative.jpg' %></div>
+          <div id='lighting-image'>
+            <%= image_tag 'hp-spot.jpg', :id => 'image_5' %>
+            <%= image_tag 'hp-retro.jpg', :id => 'image_6' %>
+            <%= image_tag 'hp-decorative.jpg', :id => 'image_4' %>
+          </div>
         </div>
       </div>
     </div>

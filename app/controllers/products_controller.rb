@@ -75,7 +75,8 @@ class ProductsController < ApplicationController
   
   private
   def set_breadcrumb_for prod
-    add_breadcrumb prod.categories.first.name, "category_path(#{prod.categories.first.id})"
+    add_breadcrumb prod.categories.first.parent.name, "category_path(#{prod.categories.first.parent.id})" unless prod.categories.first.parent.nil?
+    add_breadcrumb prod.categories.first.name, "category_path(#{prod.categories.first.id})" unless prod.categories.first.parent
     add_breadcrumb "#{prod.product_code} - #{prod.name}", "product_path(#{prod.id})"
   end
   

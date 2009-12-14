@@ -1,0 +1,23 @@
+<%= render :partial => 'category', :object => category.parent unless category.parent.nil? -%>
+<div>
+  <h2><%= category.name %></h2>
+  <% for option in category.options %>
+    <h3><%= option.name %></h3>
+    <ul>
+      <% for customization in option.customizations %>
+      <li>
+      <%= check_box_tag "active", 1, (true if @product.customizations.include?(customization)), :id => "customization-#{customization.id}" %>
+      <%= customization.name %>
+      
+      <%= 
+        observe_field(
+          "customization-#{customization.id}",
+          :url => { :controller => 'qualities', :action => 'update', :product_id => @product, :customization_id => customization },
+          :with => 'activate'
+        ) 
+      %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>  
+</div>

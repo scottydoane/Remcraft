@@ -55,7 +55,7 @@
           text-decoration: none;
           padding: 20px;
           display: block; }
-        #call-to-action .mirrors .gutter ul li a:hover, #call-to-action .mirrors .gutter ul li a.hover, #call-to-action .lighting .gutter ul li a:hover, #call-to-action .lighting .gutter ul li a.hover {
+        #call-to-action .mirrors .gutter ul li a.active, #call-to-action .lighting .gutter ul li a.active {
           font-weight: bold;
           background: url('../images/black-bar.gif') center right no-repeat; }
   #call-to-action .mirrors h2 {
