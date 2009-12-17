@@ -1,3 +1,8 @@
+<% content_for :head do %>
+  <style>
+    <%= @page.style -%>
+  </style>
+<% end if @page.style %>
 <h1><%=h @page.name -%></h1>
 <%= RedCloth.new(@page.content).to_html %>
 

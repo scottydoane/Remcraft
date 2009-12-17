@@ -8,6 +8,10 @@ module ApplicationHelper
     content_for(:head) { stylesheet_link_tag(*files) }
   end
 
+  def inline_stylesheet(*files)
+    content_for(:head) { stylesheet_tag(*files) }
+  end
+
   def published_check(object)
     object.published ? image_tag('published.png') : image_tag('unpublished.gif')
   end
