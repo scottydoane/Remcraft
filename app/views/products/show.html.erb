@@ -78,7 +78,7 @@
   <div class='description'>
     <div class='buffered'>
       <h1><%= @product.product_code %> <%= @product.name %></h1>
-      <p><%= @product.description %></p>
+      <p><%= RedCloth.new(@product.description).to_html %></p>
       <p><%= link_to_function "Open Configurator", visual_effect(:toggle_blind, :configurator)  -%>
       </p>
     </div>
