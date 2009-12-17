@@ -36,7 +36,7 @@ role :db,  "sagittarius.geekbehindthecurtain.com", :primary => true
 
 namespace :deploy do  
   task :restart do
-    sudo 'sudo /etc/init.d/lighttpd restart'
+    sudo '/etc/init.d/lighttpd restart'
   end
   
   task :after_symlink do
