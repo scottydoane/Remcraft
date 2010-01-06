@@ -44,7 +44,7 @@
 
 <%= render :partial => 'shared/next_steps' %>
 
-<div class='product'>
+<div class='product noprint'>
   <div class='variants'>
     <ul id='variant_tabs' class='tabs'>
       <%- for variant in @product.variants %>
@@ -63,7 +63,7 @@
         
         <% for specification in variant.specifications %>
           <h2><%= specification.name %></h2>
-          <p><%= RedCloth.new(specification.description).to_html %></p>
+          <%= RedCloth.new(specification.description).to_html %>
         <% end %>
         
         <% variant.customizations.group_by(&:option).each do |option, customizations| %>
@@ -82,7 +82,9 @@
       <p><%= link_to_function "Open Configurator", visual_effect(:toggle_blind, :configurator)  -%>
       </p>
     </div>
+    
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+      <% if option.is_finish %>
       <div class='customization'>
         <h2><%= option.name %></h2>
         <ul>
@@ -91,6 +93,20 @@
           <% end -%>
         </ul>
       </div>
+      <% end %>
+    <% end %>  
+
+    <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+      <% unless option.is_finish %>
+      <div class='customization' style="float: none; width: 100%; clear: left;">
+        <h2><%= option.name %></h2>
+        <ul>
+          <% for customization in customizations -%>
+          <li><%= customization.name %></li>
+          <% end -%>
+        </ul>
+      </div>
+      <% end  %>
     <% end %>  
 
     <% for specification in @product.specifications %>
@@ -99,4 +115,71 @@
     <% end %>
   </div>
   <div class='clear'></div>
+</div>
+
+<div class='print-product onlyprint'>
+  <div class='category-description'>
+    <div class='onlyprint logo'>
+      <%= image_tag @product.categories.first.images.first.public_filename(:small) rescue nil %> 
+      <p>
+        <div>800-327-6585</div>
+        <div><%= "www.remcraft.com" unless @product.categories.first.url -%></div>
+      </p>
+    </div>
+    
+    <h1><%= @product.product_code %> <%= @product.name %></h1>
+    <p><%= RedCloth.new(@product.description).to_html %></p>
+  </div>
+  
+  <div class='variants'>
+    <%- for variant in @product.variants %>
+      <div class="variant">
+        <h2><%= variant.name %></h2>
+        <%= image_tag variant.images.first.public_filename(:small), :width => '150' rescue nil %>
+  
+        <% for specification in variant.specifications %>
+          <h2><%= specification.name %></h2>
+          <%= RedCloth.new(specification.description).to_html %>
+        <% end %>
+  
+        <% variant.customizations.group_by(&:option).each do |option, customizations| %>
+          <%= render :partial => "magnification", :object => customizations if option.name == "Magnification" %>
+        <% end %>  
+      </div>
+    <%- end %>
+  </div>
+
+  <div class='description'>
+    <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+      <% if option.is_finish %>
+      <div class='customization'>
+        <h2><%= option.name %></h2>
+        <ul>
+          <% for customization in customizations -%>
+          <li><%= customization.name %></li>
+          <% end -%>
+        </ul>
+      </div>
+      <% end %>
+    <% end %>  
+
+    <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+      <% unless option.is_finish %>
+      <div class='customization' style="clear: both; width: 100%">
+      
+        <h2><%= option.name %></h2>
+        <ul>
+          <% for customization in customizations -%>
+          <li><%= customization.name %></li>
+          <% end -%>
+        </ul>
+      </div>
+      <% end  %>
+    <% end %>  
+
+    <% for specification in @product.specifications %>
+      <h2><%= specification.name %></h2>
+      <p><%= RedCloth.new(specification.description).to_html %></p>
+    <% end %>
+  </div>
 </div>

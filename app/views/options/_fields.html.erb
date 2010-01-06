@@ -1,5 +1,6 @@
 <p>
   Option Family Name: <%= f.text_field :name %>
+  Finish Options? <%= f.check_box :is_finish %>
 </p>
 <div id="customizations">
   <%= render :partial => 'customization', :collection => @option.customizations %>

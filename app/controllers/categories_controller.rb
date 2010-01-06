@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @categories }
+      format.xml    { render :xml => @categories }
     end
   end
 
@@ -18,6 +18,16 @@ class CategoriesController < ApplicationController
         
     respond_to do |format|
       format.html { render :layout => "public" } # show.html.erb
+      format.xml  { render :xml => @category }
+    end
+  end
+
+  def print
+    @category = Category.find(params[:id], :include => [{ :products  => :images }])
+    set_breadcrumb_for @category  
+        
+    respond_to do |format|
+      format.html { render :layout => "print" } # print.html.erb
       format.xml  { render :xml => @category }
     end
   end

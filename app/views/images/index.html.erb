@@ -15,7 +15,7 @@
 <% end -%>
 
 <h2>Existing <%= @object.class %> Images</h2>
-<%= variant_identifier(@object) if @object.is_a?(Variant) -%>
+<%= variant_identifier(@object) if @object.is_a?(Variant) rescue nil -%>
 
 <table>
   <tr>

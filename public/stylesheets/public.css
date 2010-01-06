@@ -1,6 +1,9 @@
 .clear {
   clear: both; }
 
+.onlyprint {
+  display: none; }
+
 body, html {
   background: #000000;
   font-family: arial, helvetica, verdana, sans-serif;
@@ -20,10 +23,9 @@ body, html {
   background: #ffffff url(../images/background-header.gif) repeat-x; }
 
 #global-navigation {
-  position: absolute;
+  float: right;
   font-size: 120%;
-  top: 13px;
-  right: 50px; }
+  margin-top: -84px; }
   #global-navigation ul li {
     float: left;
     padding: 1.2em 1.2em 1.2em 0; }
@@ -123,6 +125,10 @@ body, html {
     font-size: 120%;
     line-height: 1.25em;
     margin-bottom: .5em; }
+  .category-description .logo {
+    float: left;
+    font-size: 160%;
+    padding-bottom: 12px; }
 
 h2.subcategory {
   padding: 24px 34px 0;

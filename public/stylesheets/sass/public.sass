@@ -1,5 +1,7 @@
 .clear 
   :clear both
+.onlyprint
+  :display none
   
 body, html
   :background #000000
@@ -19,10 +21,9 @@ body, html
   :background #ffffff url(../images/background-header.gif) repeat-x
 
 #global-navigation
-  :position absolute
+  :float right
   :font-size 120%
-  :top 13px
-  :right 50px
+  :margin-top -84px
   ul
     li
       :float left
@@ -127,7 +128,11 @@ body, html
     :font-size 120%
     :line-height 1.25em
     :margin-bottom .5em
-  
+  .logo
+    :float left
+    :font-size 160%
+    :padding-bottom 12px
+
 h2.subcategory
   :padding 24px 34px 0
   :font-size 180%

@@ -7,7 +7,8 @@
   <title>Remcraft Lighting Products, Inc.</title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.7.0/build/reset/reset-min.css"> 
   
-  <%= stylesheet_link_tag 'public', :media => 'all' %>
+  <%= stylesheet_link_tag 'public', :media => 'screen' %>
+  <%= stylesheet_link_tag 'print', :media => 'print' %>
   <%= stylesheet_link_tag 'lightbox' %>
   <!--[if IE 6]> 
     <%= stylesheet_link_tag 'ie6' %>
@@ -28,7 +29,7 @@
     <%= render :partial => 'shared/navigation' %>
     <%= tag("div", flash[:notice], :id => 'special') if flash[:notice] %>
     
-    <div id="breadcrumb">
+    <div id="breadcrumb" class='noprint'>
       <% if @breadcrumbs %>
         <% @breadcrumbs[0..-2].each do |txt, path| %>
           <%= link_to(h(txt), path) %> /
