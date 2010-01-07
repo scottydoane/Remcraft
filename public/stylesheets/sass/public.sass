@@ -180,7 +180,6 @@ ul.products
     :font-weight bold
     :font-size 130%
     :text-transform uppercase
-    :border-top solid 1px #000
     :padding-top 2px
     
   .variants
@@ -238,7 +237,8 @@ ul.products
       :padding-bottom 18px
       :min-height 138px
     .customization
-      :float left
+      :border-top solid 1px #000
+      :position relative
       :width 140px
       :margin-right 16px
     ul
@@ -262,17 +262,32 @@ ul.products
 
 #configurator
   :min-height 400px
-  :width 700px
+  :width 672px
   :background #aaa
   :border solid 12px #999999
   :position absolute
-  :top 0
-  :left 18px
+  :top 1px
+  :left 37px
   :z-index 300
+  :padding 18px
+  h2
+    :font-size 180%
+    :font-weight bold
+    :margin-bottom 0
+  h3 
+    :font-weight bold
+    :margin-top 8px
+  p 
+    :font-size 110%
+    :padding 4px 0 12px
+  #code
+    :font-weight bold
   .configurator-variant
     :float left
+    :padding-right 8px
   .configurator-customization
-    :clear both
+    :padding-right 8px
+
 #footer
   :clear both
   :border-top solid #000 5px

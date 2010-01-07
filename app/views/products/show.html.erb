@@ -14,35 +14,22 @@
       $('tab_'+id).addClassName('active');
     }
   </script>
+  <script type="text/javascript" charset="utf-8">
+    function updateForm() {
+      allNodes = Form.serialize("config-form");
+      values = allNodes.split('&')
+      
+      $('code').innerHTML = '<%= @product.product_code %>'
+      values.each(function(x){ 
+        value = x.split('=').last()
+        $('code').innerHTML = $('code').innerHTML + '-' + value;
+      });
+    }
+  </script>
 <% end %>
 
-<div id="configurator" style='display: none;'>
-  <%- for variant in @product.variants %>
-    <% variant.customizations.group_by(&:option).each do |option, customizations| %>
-    <div class='configurator-variant'>
-      <p><%= variant.name %> <%= option.name %></p>
-      <ul>
-        <% for customization in customizations -%>
-        <li><%= radio_button_tag variant.name, customization.skumod %> <%= customization.name %></li>
-        <% end -%>
-      </ul>
-    </div>
-    <% end %>  
-  <% end %>  
-  
-  <% @product.customizations.group_by(&:option).each do |option, customizations| %>
-    <div class='configurator-customization'>
-      <p><%= option.name %></p>
-      <ul>
-        <% for customization in customizations -%>
-        <li><%= radio_button_tag option.name, customization.skumod %> <%= customization.name %></li>
-        <% end -%>
-      </ul>
-    </div>
-  <% end %>  
-</div>
-
-<%= render :partial => 'shared/next_steps' %>
+<%= render :partial => 'configurator' -%>
+<%= render :partial => 'shared/next_steps' -%>
 
 <div class='product noprint'>
   <div class='variants'>
@@ -79,13 +66,12 @@
     <div class='buffered'>
       <h1><%= @product.product_code %> <%= @product.name %></h1>
       <p><%= RedCloth.new(@product.description).to_html %></p>
-      <p><%= link_to_function "Open Configurator", visual_effect(:toggle_blind, :configurator)  -%>
-      </p>
+      <p><%= link_to_function "Open Configurator", visual_effect(:appear, :configurator)  -%></p>
     </div>
     
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
       <% if option.is_finish %>
-      <div class='customization'>
+      <div class='customization' style="float: left">
         <h2><%= option.name %></h2>
         <ul>
           <% for customization in customizations -%>
@@ -98,7 +84,7 @@
 
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
       <% unless option.is_finish %>
-      <div class='customization' style="float: none; width: 100%; clear: left;">
+      <div class='customization' style="float: left; width: 100%;">
         <h2><%= option.name %></h2>
         <ul>
           <% for customization in customizations -%>
@@ -117,6 +103,7 @@
   <div class='clear'></div>
 </div>
 
+<!-- Print Page Below -->
 <div class='print-product onlyprint'>
   <div class='category-description'>
     <div class='onlyprint logo'>

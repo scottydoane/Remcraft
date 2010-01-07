@@ -1,0 +1,58 @@
+<div id="configurator"> <!-- style='display: none;'> -->
+  <h2>Remcraft Product Configurator</h2>
+  <p>Select the product and options you would like on that product. The code will build at the bottom of the configurator panel. Contact a Remcraft representative with that code to order.</p>
+  
+  <p>Product Code: <span id='code'><%= @product.product_code %></span></p>
+  
+<form action="#" method="#" accept-charset="utf-8" id="config-form">
+  
+  <%- for variant in @product.variants %>
+    <% variant.customizations.group_by(&:option).each do |option, customizations| %>
+    <div class='configurator-variant'>
+      <h3><%= variant.name %> <%= option.name %></h3>
+      <ul>
+        <% for customization in customizations -%>
+        <li><%= radio_button_tag option.name, "#{variant.sku}-#{customization.skumod}" %> <%= customization.name %></li>
+        <% end -%>
+      </ul>
+    </div>
+    <% end %>  
+  <% end %>  
+  
+  <div class="clear"></div>
+  
+  <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+    <% if option.is_finish %>
+    <div class='configurator-customization' style="float: left;">
+      <h3><%= option.name %></h3>
+      <ul>
+        <% for customization in customizations -%>
+        <li><%= radio_button_tag "finish", customization.skumod %> <%= customization.name %></li>
+        <% end -%>
+      </ul>
+    </div>
+    <% end %>
+  <% end %>  
+  
+  <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+    <% unless option.is_finish %>
+    <div class='configurator-customization' style="float: left; width: 100%;">
+      <h3><%= option.name %></h3>
+      <ul>
+        <% for customization in customizations -%>
+        <li><%= radio_button_tag option.name, customization.skumod %> <%= customization.name %></li>
+        <% end -%>
+      </ul>
+    </div>
+    <% end %>
+  <% end %>  
+
+</form>  
+
+
+  <p style="clear: both; padding-top: 12px"><%= link_to_function "Close Configurator", visual_effect(:fade, :configurator)  -%></p>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  new Form.Observer($('config-form'), 0, updateForm)
+</script>
