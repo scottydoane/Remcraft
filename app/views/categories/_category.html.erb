@@ -4,7 +4,8 @@
   <li>
     <a href='/products/<%= product.id %>'>
       <div class='image'>
-        <%= image_tag product.images.first.public_filename(:small) rescue nil %>
+        <%= image_tag product.images.first.public_filename(:small), :class => 'onlyprint', :width => "120px" rescue nil %>
+        <%= image_tag product.images.first.public_filename(:small), :class => 'noprint' rescue nil %>
       </div>
       <div class='text'>
         <p><%= product.product_code %></p>

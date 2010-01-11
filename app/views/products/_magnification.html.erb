@@ -4,7 +4,7 @@
   <h2>Magnification Options</h2>
   <ul>
     <% for level in magnification_levels -%>
-    <li class='<%= "on" if magnification.include?(level) %>'>
+    <li class='<%= magnification.include?(level) ? "on" : "off" %>'>
       <%= level %>
     </li>
     <% end -%>
