@@ -75,8 +75,7 @@ ul.products {
     font-size: 130%;
     text-transform: uppercase;
     border-top: solid 1px #000;
-    padding-top: 2px;
-    margin-bottom: -6px; }
+    padding-top: 2px; }
   .print-product .variant {
     border: solid 1px #e4e4e4;
     width: 195px;
