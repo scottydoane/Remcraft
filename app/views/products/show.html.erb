@@ -114,7 +114,7 @@
 <div class='print-product onlyprint'>
   <div class='category-description'>
     <div class='onlyprint logo'>
-      <%= image_tag @product.categories.first.images.first.public_filename(:small) rescue nil %> 
+      <%= image_tag @product.categories.first.parent.images.first.public_filename(:small) %> 
       <p>
         <div>800-327-6585</div>
         <div><%= "www.remcraft.com" unless @product.categories.first.url -%></div>
