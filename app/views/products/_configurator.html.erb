@@ -2,17 +2,28 @@
   <h2>Remcraft Product Configurator</h2>
   <p>Select the product and options you would like on that product. The code will build at the bottom of the configurator panel. Contact a Remcraft representative with that code to order.</p>
   
-  <p>Product Code: <span id='code'><%= @product.product_code %></span></p>
   
 <form action="#" method="#" accept-charset="utf-8" id="config-form">
+  <p>Product Code: <span id='code'><%= @product.product_code %></span></p>
+  <p><input type="reset" value="Reconfigure Product"></p>   
+  
+  <div class='variant-selector'>
+    <select name="variant" id="variant-selector">
+      <option value="">Select a Model Type</option>
+      
+      <%- for variant in @product.variants %>
+        <option value="<%= variant.sku %>"><%= variant.name %></option>
+      <% end %>        
+    </select>
+  </div>
   
   <%- for variant in @product.variants %>
     <% variant.customizations.group_by(&:option).each do |option, customizations| %>
-    <div class='configurator-variant'>
+    <div id="<%= variant.sku %>" class='configurator-variant' style="display: none;">
       <h3><%= variant.name %> <%= option.name %></h3>
       <ul>
         <% for customization in customizations -%>
-        <li><%= radio_button_tag option.name, "#{variant.sku}-#{customization.skumod}" %> <%= customization.name %></li>
+        <li><%= radio_button_tag option.name, customization.skumod %> <%= customization.name %></li>
         <% end -%>
       </ul>
     </div>
@@ -46,7 +57,6 @@
     </div>
     <% end %>
   <% end %>  
-
 </form>  
 
 
