@@ -1,5 +1,5 @@
 set :application, "remcraft"
-set :repository, "ssh://root@sagittarius.geekbehindthecurtain.com/home/git/repositories/remcraft.git"
+set :repository, "git://github.com/scottydoane/Remcraft.git"
 default_run_options[:pty] = true
 
 # PRODUCTION VALUES
@@ -36,7 +36,7 @@ role :db,  "sagittarius.geekbehindthecurtain.com", :primary => true
 
 namespace :deploy do  
   task :restart do
-    sudo '/etc/init.d/lighttpd restart'
+    run "/etc/init.d/lighttpd restart </dev/null >/dev/null 2>&1 " 
   end
   
   task :after_symlink do
