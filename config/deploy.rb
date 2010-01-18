@@ -5,7 +5,7 @@ default_run_options[:pty] = true
 # PRODUCTION VALUES
 set :user, "remcraft" 
 set :runner, user
-set :password, "tigger"
+set :password, "9b2d6v1s"
 
 #set :user, "root"
 #set :password, "pr0d1G10u$"
@@ -19,7 +19,7 @@ set :deploy_to, "/home/remcraft/etc/rails_apps/remcraft_2010"
 # set :deploy_to, "/var/www/rails/#{application}"
 
 set :rails_env, "production"
-# set :use_sudo, false
+set :use_sudo, false
 
 # If you aren't using Subversion to manage your source code, specify
 # your SCM below:
@@ -28,7 +28,7 @@ set :scm, :git
 set :scm_user, 'scotty'
 set :git_enable_submodules, true
 
-# set :port, 7822
+set :port, 7822
 
 role :app, "www.remcraft.com"
 role :web, "www.remcraft.com"
