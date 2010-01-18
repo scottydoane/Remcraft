@@ -19,12 +19,14 @@
       allNodes = Form.serialize("config-form");
       values = allNodes.split('&');
       
+    if ($$('div.configurator-variant').length > 0) {
       $$('div.configurator-variant').each(function(x){
         x.style.display = 'none';
       });
 
       variant = $F('variant-selector');
       $(variant).style.display = 'block';
+    }
       
       $('code').innerHTML = '<%= @product.product_code %>'
       values.each(function(x){ 

@@ -7,29 +7,30 @@
   <p>Product Code: <span id='code'><%= @product.product_code %></span></p>
   <p><input type="reset" value="Reconfigure Product"></p>   
   
-  <div class='variant-selector'>
-    <select name="variant" id="variant-selector">
-      <option value="">Select a Model Type</option>
+  <% if @product.variants.size > 1 && @product.variants.first.customizations.size > 0 -%>
+    <div class='variant-selector'>
+      <select name="variant" id="variant-selector">
+        <option value="">Select a Model Type</option>
       
-      <%- for variant in @product.variants %>
-        <option value="<%= variant.sku %>"><%= variant.name %></option>
-      <% end %>        
-    </select>
-  </div>
-  
-  <%- for variant in @product.variants %>
-    <% variant.customizations.group_by(&:option).each do |option, customizations| %>
-    <div id="<%= variant.sku %>" class='configurator-variant' style="display: none;">
-      <h3><%= variant.name %> <%= option.name %></h3>
-      <ul>
-        <% for customization in customizations -%>
-        <li><%= radio_button_tag option.name, customization.skumod %> <%= customization.name %></li>
-        <% end -%>
-      </ul>
+        <%- for variant in @product.variants %>
+          <option value="<%= variant.sku %>"><%= variant.name %></option>
+        <% end %>        
+      </select>
     </div>
-    <% end %>  
-  <% end %>  
   
+    <%- for variant in @product.variants %>
+      <% variant.customizations.group_by(&:option).each do |option, customizations| %>
+      <div id="<%= variant.sku %>" class='configurator-variant' style="display: none;">
+        <h3><%= variant.name %> <%= option.name %></h3>
+        <ul>
+          <% for customization in customizations -%>
+          <li><%= radio_button_tag option.name, customization.skumod %> <%= customization.name %></li>
+          <% end -%>
+        </ul>
+      </div>
+      <% end -%>  
+    <% end -%>  
+  <% end -%>
   <div class="clear"></div>
   
   <% @product.customizations.group_by(&:option).each do |option, customizations| %>
