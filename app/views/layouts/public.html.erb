@@ -27,7 +27,8 @@
   <div id="wrap">
   	    
     <%= render :partial => 'shared/navigation' %>
-    <%= tag("div", flash[:notice], :id => 'special') if flash[:notice] %>
+    <%= content_tag(:div, flash[:notice], :id => 'flash', :class => 'flash-notice') if flash[:notice] %>
+    <%= content_tag(:div, flash[:error], :id => 'flash', :class => 'flash-error') if flash[:error] %>
     
     <div id="breadcrumb" class='noprint'>
       <% if @breadcrumbs %>
