@@ -15,7 +15,7 @@ set :password, "9b2d6v1s"
 # via the :deploy_to variable:
 # set :deploy_to, "/var/www/#{application}"
 
-set :deploy_to, "/home/remcraft/etc/rails_apps/remcraft_2010"
+set :deploy_to, "/home/remcraft/etc/rails_apps/Remcraft2010"
 # set :deploy_to, "/var/www/rails/#{application}"
 
 set :rails_env, "production"
