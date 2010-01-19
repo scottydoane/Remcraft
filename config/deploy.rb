@@ -26,7 +26,7 @@ set :use_sudo, false
 # set :scm, :subversion
 set :scm, :git
 set :scm_user, 'scotty'
-set :git_enable_submodules, true
+# set :git_enable_submodules, true
 
 set :port, 7822
 
@@ -40,14 +40,14 @@ namespace :deploy do
   # end
   
   task :after_symlink do
-    sudo 'sudo chown -R www-data:www-data /var/www/rails/remcraft/releases'
-    sudo 'sudo chmod 777 /var/www/rails/remcraft/current/tmp'
-    sudo 'sudo ln -s /var/www/rails/remcraft/uploads /var/www/rails/remcraft/current/public/images/uploads'
-    sudo 'sudo ln -s /var/www/rails/remcraft/assets /var/www/rails/remcraft/current/public/assets'
-    # run "rm -rf #{deploy_to}/current/vendor/plugins"
-    # run "ln -s #{deploy_to}/plugins #{deploy_to}/current/vendor/plugins"
-    # run "ln -s #{deploy_to}/uploads #{deploy_to}/current/public/images/uploads"
-    # run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
+    # sudo 'sudo chown -R www-data:www-data /var/www/rails/remcraft/releases'
+    # sudo 'sudo chmod 777 /var/www/rails/remcraft/current/tmp'
+    # sudo 'sudo ln -s /var/www/rails/remcraft/uploads /var/www/rails/remcraft/current/public/images/uploads'
+    # sudo 'sudo ln -s /var/www/rails/remcraft/assets /var/www/rails/remcraft/current/public/assets'
+    run "rm -rf #{deploy_to}/current/vendor/plugins"
+    run "ln -s #{deploy_to}/plugins #{deploy_to}/current/vendor/plugins"
+    run "ln -s #{deploy_to}/uploads #{deploy_to}/current/public/images/uploads"
+    run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
     # run "ln -s #{deploy_to}/shared/images #{deploy_to}/current/public/images/static"
   end
   
