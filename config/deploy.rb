@@ -31,9 +31,9 @@ role :web, "66.103.254.200"
 role :db,  "66.103.254.200", :primary => true
 
 namespace :deploy do  
-  # task :restart do
-  #  run "/etc/init.d/lighttpd restart </dev/null >/dev/null 2>&1 " 
-  # end
+  task :restart do
+   sudo "sudo /etc/init.d/mongrel_cluster restart" 
+  end
   
   task :after_symlink do
     # sudo 'sudo chown -R www-data:www-data /var/www/rails/remcraft/releases'
