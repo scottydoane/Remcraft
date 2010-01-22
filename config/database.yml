@@ -44,7 +44,7 @@ staging:
 production:
   adapter: mysql
   encoding: utf8
-  database: remcraft_production2010
+  database: remcraft_production
   username: remcraft_dbuser
   password: 6Kf8dpQibuYs
   host: localhost
