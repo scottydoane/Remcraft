@@ -18,9 +18,22 @@
       </select>
     </div>
   
+    <% @product.customizations.group_by(&:option).each do |option, customizations| %>
+      <% if option.name == "Body Type" %>
+      <div class='configurator-customization' style="float: left;">
+        <h3><%= option.name %></h3>
+        <ul>
+          <% for customization in customizations -%>
+          <li><%= radio_button_tag "finish", customization.skumod %> <%= customization.name %></li>
+          <% end -%>
+        </ul>
+      </div>
+      <% end %>
+    <% end %>  
+  
     <%- for variant in @product.variants %>
       <% variant.customizations.group_by(&:option).each do |option, customizations| %>
-      <div id="<%= variant.sku %>" class='configurator-variant' style="display: none;">
+      <div id="<%= variant.sku %>" class='configurator-variant' style="display: none; clear: both;">
         <h3><%= variant.name %> <%= option.name %></h3>
         <ul>
           <% for customization in customizations -%>
@@ -47,7 +60,7 @@
   <% end %>  
   
   <% @product.customizations.group_by(&:option).each do |option, customizations| %>
-    <% unless option.is_finish %>
+    <% unless option.is_finish || option.name == "Body Type" -%>
     <div class='configurator-customization' style="float: left; width: 100%;">
       <h3><%= option.name %></h3>
       <ul>

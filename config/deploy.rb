@@ -14,7 +14,7 @@ set :password, "pr0d1G10u$"
 
 set :deploy_to, "/var/www/rails/#{application}.com"
 
-set :rails_env, "production"
+# set :rails_env, "production"
 set :use_sudo, true
 
 # If you aren't using Subversion to manage your source code, specify
@@ -42,26 +42,29 @@ namespace :deploy do
     # sudo 'sudo ln -s /var/www/rails/remcraft/assets /var/www/rails/remcraft/current/public/assets'
     # run "rm -rf #{deploy_to}/current/vendor/plugins"
     # run "ln -s #{deploy_to}/plugins #{deploy_to}/current/vendor/plugins"
-    # run "ln -s #{deploy_to}/uploads #{deploy_to}/current/public/images/uploads"
-    # run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
-    # run "ln -s #{deploy_to}/shared/images #{deploy_to}/current/public/images/static"
+    run "ln -s #{deploy_to}/uploads #{deploy_to}/current/public/images/uploads"
+    run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
+    run "ln -s #{deploy_to}/shared/images #{deploy_to}/current/public/images/static"
   end
   
   desc "Restart the app server"
   task :restart, :roles => :app do
-    send(run_method, "")
+    sudo "sudo /etc/init.d/mongrel_cluster restart" 
+    #send(run_method, "")
     #send(run_method, "cd #{current_path} && mongrel_rails restart")
   end
 
   desc "Stop the app server"
   task :stop_app, :roles => :app do
-    send(run_method, "")
+    sudo "sudo /etc/init.d/mongrel_cluster stop" 
+    #send(run_method, "")
     #send(run_method, "cd #{current_path} && mongrel_rails stop")
   end
   
   desc "Start the app server"
   task :start_app, :roles => :app do
-    send(run_method, "")
+    sudo "sudo /etc/init.d/mongrel_cluster start" 
+    #send(run_method, "")
     #send(run_method, "cd #{current_path} && mongrel_rails start -d -p #{app_port} -e #{app_env} < /dev/null >& /dev/null")
   end
 end
