@@ -235,7 +235,8 @@ ul.products {
       border-top: solid 1px #000;
       position: relative;
       width: 140px;
-      margin-right: 16px; }
+      margin-right: 16px;
+      margin-top: 12px; }
     .product .description ul {
       margin: 6px 0;
       font-size: 120%; }

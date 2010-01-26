@@ -75,7 +75,7 @@
     <div class='buffered'>
       <h1><%= @product.product_code %> <%= @product.name %></h1>
       <p><%= RedCloth.new(@product.description).to_html %></p>
-      <p><%= link_to_function "Open Configurator", visual_effect(:appear, :configurator)  -%></p>
+      <p><%= link_to_function "Choose Your Options", visual_effect(:appear, :configurator)  -%></p>
     </div>
     
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
@@ -84,7 +84,7 @@
         <h2><%= option.name %></h2>
         <ul>
           <% for customization in customizations -%>
-          <li><%= customization.name %></li>
+          <li style="background: transparent url('/images/finishes/<%= customization.name.downcase.gsub(" ", "-") rescue "none" -%>.jpg') 0 50% no-repeat; padding: 2px 0 2px 40px ;"><%= customization.name %></li>
           <% end -%>
         </ul>
       </div>

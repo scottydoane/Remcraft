@@ -35,7 +35,7 @@ namespace :deploy do
    sudo "sudo /etc/init.d/mongrel_cluster restart" 
   end
   
-  task :after_symlink do
+  after "deploy:symlink" do
     # sudo 'sudo chown -R www-data:www-data /var/www/rails/remcraft/releases'
     # sudo 'sudo chmod 777 /var/www/rails/remcraft/current/tmp'
     # sudo 'sudo ln -s /var/www/rails/remcraft/uploads /var/www/rails/remcraft/current/public/images/uploads'
@@ -44,6 +44,7 @@ namespace :deploy do
     # run "ln -s #{deploy_to}/plugins #{deploy_to}/current/vendor/plugins"
     run "ln -s #{deploy_to}/uploads #{deploy_to}/current/public/images/uploads"
     run "ln -s #{deploy_to}/assets #{deploy_to}/current/public/assets"
+    run "ln -s #{deploy_to}/catalogs #{deploy_to}/current/public/catalogs"
     run "ln -s #{deploy_to}/shared/images #{deploy_to}/current/public/images/static"
   end
   
