@@ -75,7 +75,9 @@
     <div class='buffered'>
       <h1><%= @product.product_code %> <%= @product.name %></h1>
       <p><%= RedCloth.new(@product.description).to_html %></p>
+      <% if @product.categories.first.id == 12 ||  @product.categories.first.id == 13 -%>
       <p><%= link_to_function "Choose Your Options", visual_effect(:appear, :configurator)  -%></p>
+      <% end %>
     </div>
     
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>

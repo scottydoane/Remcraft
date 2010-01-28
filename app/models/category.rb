@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   
   has_many :images, :as => :imageable, :dependent => :destroy, :order => :position
   
-  has_many :placements, :order => :position
+  has_many :placements, :order => :position, :dependent => :destroy
   has_many :products, :through => :placements, :order => :position
   
   has_many :options, :order => :position

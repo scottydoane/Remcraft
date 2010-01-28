@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+  def has_permission?
+    logged_in? ? true : redirect_to('/')
+  end
+  
   protected
     def add_breadcrumb name, url = ''
       @breadcrumbs ||= []

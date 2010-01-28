@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  # before_filter :has_permission?, :except => [ :show ]
+  before_filter :has_permission?, :except => [ :show ]
   
   def index
     @products = Product.paginate :page => params[:page], :include => :images, :order => :product_code, :conditions => "type IS NULL OR type = 'Product'"
