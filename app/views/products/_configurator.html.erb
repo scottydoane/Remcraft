@@ -1,16 +1,15 @@
 <div id="configurator" style='display: none;'>
   <h2>Remcraft Product Configurator</h2>
-  <p>Select the product and options you would like on that product. The code will build at the bottom of the configurator panel. Contact a Remcraft representative with that code to order.</p>
+  <p>Select the product and options you would like on that product. The code will build just above the option selections. Contact a Remcraft representative with that code to order.</p>
   
   
 <form action="#" method="#" accept-charset="utf-8" id="config-form">
   <p>Product Code: <span id='code'><%= @product.product_code %></span></p>
-  <p><input type="reset" value="Reconfigure Product"></p>   
   
   <% if @product.variants.size > 1 && @product.variants.first.customizations.size > 0 -%>
     <div class='variant-selector'>
       <select name="variant" id="variant-selector">
-        <option value="">Select a Model Type</option>
+        <option value="">Select a Style</option>
       
         <%- for variant in @product.variants %>
           <option value="<%= variant.sku %>"><%= variant.name %></option>
@@ -71,10 +70,10 @@
     </div>
     <% end %>
   <% end %>  
+  <p style="clear: both; padding-top: 12px"><input type="reset" value="Reconfigure Product"> or <%= link_to_function "Close Configurator", visual_effect(:fade, :configurator)  -%></p>   
 </form>  
 
 
-  <p style="clear: both; padding-top: 12px"><%= link_to_function "Close Configurator", visual_effect(:fade, :configurator)  -%></p>
 </div>
 
 <script type="text/javascript" charset="utf-8">
