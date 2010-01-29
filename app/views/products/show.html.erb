@@ -116,12 +116,12 @@
 
 <!-- Print Page Below -->
 <div class='print-product onlyprint'>
-  <div class='category-description'>
+  <div class='category-description' style='padding-left: 0'>
     <div class='onlyprint logo'>
       <%= image_tag @product.categories.first.parent.images.first.public_filename(:small) rescue nil %> 
       <p>
         <div>800-327-6585</div>
-        <div><%= "www.remcraft.com" unless @product.categories.first.url -%></div>
+        <div><%=  @product.categories.first.url rescue "www.remcraft.com" -%></div>
       </p>
     </div>
     
@@ -146,7 +146,7 @@
       </div>
     <%- end %>
   </div>
-
+  <div style="clear: both"></div>
   <div class='description'>
     <% @product.customizations.group_by(&:option).each do |option, customizations| %>
       <% if option.is_finish %>

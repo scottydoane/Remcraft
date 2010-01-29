@@ -1,16 +1,17 @@
 <%= render :partial => 'shared/next_steps' %>
 
 <div class='category-description'>
-  <div class='onlyprint logo'>
+  <div class='logo'>
     <%= image_tag @category.images.first.public_filename(:small) %> 
     <p>
       <div>800-327-6585</div>
-      <div><%= "www.remcraft.com" unless @category.url -%></div>
+      <div><%= @category.url rescue "www.remcraft.com" -%></div>
     </p>
   </div>
-  
-  <h1><%= @category.title %></h1>
-  <%= @category.description %> 
+  <div class="description">
+    <h1><%= @category.title %></h1>
+    <%= @category.description %> 
+  </div>
 </div>
 
 
@@ -21,4 +22,5 @@
 
 <% for category in @category.children.delete_if { |x| x.products.empty? } -%>
 <%= render :partial => category %>
+<div style="page-break: always"></div>
 <%- end -%>

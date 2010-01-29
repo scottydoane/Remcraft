@@ -129,6 +129,8 @@ body, html {
     float: left;
     font-size: 160%;
     padding-bottom: 12px; }
+  .category-description .description {
+    margin-left: 200px; }
 
 h2.subcategory {
   padding: 24px 34px 0;
