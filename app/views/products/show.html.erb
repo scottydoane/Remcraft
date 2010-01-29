@@ -14,6 +14,7 @@
       $('tab_'+id).addClassName('active');
     }
   </script>
+  
   <script type="text/javascript" charset="utf-8">
     function updateForm() {
       allNodes = Form.serialize("config-form");
@@ -24,8 +25,10 @@
         x.style.display = 'none';
       });
 
-      variant = $F('variant-selector');
-      $(variant).style.display = 'block';
+      if ($F('variant-selector') != '') {
+        variant = $F('variant-selector');
+        $(variant).style.display = 'block';
+      }
     }
       
       $('code').innerHTML = '<%= @product.product_code %>'
@@ -33,6 +36,16 @@
         value = x.split('=').last()
         $('code').innerHTML = $('code').innerHTML + '-' + value;
       });
+    }
+    
+    function reconfigure() {
+      Form.reset('config-form');
+       $('code').innerHTML = '<%= @product.product_code %>'
+    }
+    
+    function closeUp() {
+      reconfigure();
+      Effect.Fade("configurator",{});
     }
   </script>
 <% end %>

@@ -23,7 +23,7 @@
         <h3><%= option.name %></h3>
         <ul>
           <% for customization in customizations -%>
-          <li><%= radio_button_tag "finish", customization.skumod %> <%= customization.name %></li>
+          <li><%= radio_button_tag option.name, customization.skumod %> <%= customization.name %></li>
           <% end -%>
         </ul>
       </div>
@@ -70,7 +70,10 @@
     </div>
     <% end %>
   <% end %>  
-  <p style="clear: both; padding-top: 12px"><input type="reset" value="Reconfigure Product"> or <%= link_to_function "Close Configurator", visual_effect(:fade, :configurator)  -%></p>   
+  <p style="clear: both; padding-top: 12px">
+    <%= button_to_function "Reconfigure Product", "reconfigure()" -%> or 
+    <%= link_to_function "Close Configurator", "closeUp()"  -%>
+  </p>   
 </form>  
 
 
