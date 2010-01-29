@@ -29,3 +29,5 @@ ul.products {
   margin: 0;
   position: static;
   width: 856px; }
+  .product .description ul li {
+    display: inline-block; }
